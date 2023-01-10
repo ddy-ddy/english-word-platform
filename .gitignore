@@ -11,5 +11,4 @@ node_modules
 
 
 ##忽略的大型数据
-/data/english-wordnet-2021.xml
-/data/english-wordnet-2021.json
+/data

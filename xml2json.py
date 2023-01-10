@@ -10,13 +10,18 @@
     python -mjson.tool data/english-wordnet-2021.json > formatted.json
 '''
 
-
 import xmltodict, json
 
 if __name__ == '__main__':
-    with open("data/english-wordnet-2021.xml", 'r') as rf:
+    read_file_path = "data/wn.xml"
+    write_file_path = "data/wn.json"
+
+    with open(read_file_path, 'r') as rf:
         obj = xmltodict.parse(rf.read())
+
     print("Finished convert")
-    with open("data/english-wordnet-2021.json", 'w') as wf:
+
+    with open(write_file_path, 'w') as wf:
         wf.write(json.dumps(obj))
+
     print("Finished storing the data in a json file")
