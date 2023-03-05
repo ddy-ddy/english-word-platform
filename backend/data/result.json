@@ -1,0 +1,28 @@
+[
+  {
+    "Lemma": {
+      "pos": "s",
+      "name": "implicit",
+      "id": "implicit.s"
+    },
+    "Synset": {
+      "examples": "['implicit trust']",
+      "pos": "s",
+      "definition": "being without doubt or reserve",
+      "id": "implicit.s.02"
+    }
+  },
+  {
+    "Lemma": {
+      "pos": "a",
+      "name": "implicit",
+      "id": "implicit.a"
+    },
+    "Synset": {
+      "examples": "['an implicit agreement not to raise the subject', 'there was implicit criticism in his voice', 'anger was implicit in the argument', 'the oak is implicit in the acorn']",
+      "pos": "a",
+      "definition": "implied though not directly expressed; inherent in the nature of something",
+      "id": "implicit.a.01"
+    }
+  }
+]

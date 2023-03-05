@@ -1,0 +1,28 @@
+2023-03-05 13:11:47.071+0000 INFO  Starting...
+2023-03-05 13:11:47.636+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-05 13:11:49.093+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-05 13:11:56.066+0000 INFO  Initializing system graph model for component 'security-users' with version -1 and status UNINITIALIZED
+2023-03-05 13:11:56.078+0000 INFO  Setting up initial user from defaults: neo4j
+2023-03-05 13:11:56.078+0000 INFO  Creating new user 'neo4j' (passwordChangeRequired=true, suspended=false)
+2023-03-05 13:11:56.177+0000 INFO  Setting version for 'security-users' to 3
+2023-03-05 13:11:56.201+0000 INFO  After initialization of system graph model component 'security-users' have version 3 and status CURRENT
+2023-03-05 13:11:56.227+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-05 13:11:57.515+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-05 13:11:58.463+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-05 13:11:58.467+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-05 13:11:58.467+0000 INFO  name: system
+2023-03-05 13:11:58.467+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-05 13:11:58.467+0000 INFO  Started.
+2023-03-05 13:12:00.214+0000 WARN  The client is unauthorized due to authentication failure.
+2023-03-05 13:12:00.240+0000 WARN  The client is unauthorized due to authentication failure.
+2023-03-05 13:20:01.768+0000 INFO  Starting...
+2023-03-05 13:20:02.560+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-05 13:20:03.815+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-05 13:20:11.354+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-05 13:20:11.354+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-05 13:20:12.654+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-05 13:20:13.520+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-05 13:20:13.526+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-05 13:20:13.526+0000 INFO  name: system
+2023-03-05 13:20:13.527+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-05 13:20:13.527+0000 INFO  Started.
