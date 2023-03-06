@@ -1,4 +1,4 @@
-##常规忽略文件
+##backend忽略文件
 .DS_Store
 node_modules
 /build
@@ -8,3 +8,17 @@ node_modules
 .idea
 .env.*
 !.env.example
+
+##frontend忽略文件
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+.vercel
+.output
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

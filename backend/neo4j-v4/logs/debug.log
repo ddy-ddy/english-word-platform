@@ -1448,3 +1448,889 @@ MultipleIndexPopulator{activeTasks=0, batchedUpdatesFromScan = [org.neo4j.kernel
 2023-03-05 13:20:13.526+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
 2023-03-05 13:20:13.527+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] name: system
 2023-03-05 13:20:13.527+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] creationDate: 2023-03-05T13:11:51.738Z
+2023-03-05 14:01:58.938+0000 ERROR [o.n.b.r.DefaultBoltConnection] Protocol breach detected in bolt session 'bolt-22'.
+org.neo4j.bolt.runtime.BoltProtocolBreachFatality: Message 'PULL Map{qid -> Long(0), n -> Long(1000)}' cannot be handled by a session in the READY state.
+	at org.neo4j.bolt.runtime.statemachine.impl.AbstractBoltStateMachine.nextState(AbstractBoltStateMachine.java:155) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.statemachine.impl.AbstractBoltStateMachine.process(AbstractBoltStateMachine.java:98) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.messaging.BoltRequestMessageReader.lambda$doRead$1(BoltRequestMessageReader.java:93) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.DefaultBoltConnection.lambda$enqueue$0(DefaultBoltConnection.java:156) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.DefaultBoltConnection.processNextBatchInternal(DefaultBoltConnection.java:250) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.DefaultBoltConnection.processNextBatch(DefaultBoltConnection.java:187) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.DefaultBoltConnection.processNextBatch(DefaultBoltConnection.java:177) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.scheduling.ExecutorBoltScheduler.executeBatch(ExecutorBoltScheduler.java:257) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at org.neo4j.bolt.runtime.scheduling.ExecutorBoltScheduler.lambda$scheduleBatchOrHandleError$3(ExecutorBoltScheduler.java:240) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1700) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.86.Final.jar:4.1.86.Final]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2023-03-05 14:07:43.108+0000 WARN  [o.n.b.t.p.HouseKeeper] Fatal error occurred when handling a client connection, remote peer unexpectedly closed connection: [id: 0x67774e42, L:/127.0.0.1:7687 - R:/127.0.0.1:55734]
+2023-03-05 14:10:51.230+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1534, gcTime=0, gcCount=0}
+2023-03-05 14:10:51.443+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=777, gcTime=0, gcCount=0}
+2023-03-05 14:18:37.567+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1387, gcTime=0, gcCount=0}
+2023-03-05 14:18:38.524+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=756, gcTime=0, gcCount=0}
+2023-03-05 14:26:24.418+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1505, gcTime=0, gcCount=0}
+2023-03-05 14:26:25.368+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=750, gcTime=0, gcCount=0}
+2023-03-05 14:32:00.563+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1427, gcTime=0, gcCount=0}
+2023-03-05 14:33:09.469+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1490, gcTime=0, gcCount=0}
+2023-03-05 14:33:10.221+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=552, gcTime=0, gcCount=0}
+2023-03-05 14:34:20.826+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1373, gcTime=0, gcCount=0}
+2023-03-05 14:39:53.744+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1362, gcTime=0, gcCount=0}
+2023-03-05 14:45:26.756+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1384, gcTime=0, gcCount=0}
+2023-03-05 14:50:59.757+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1476, gcTime=0, gcCount=0}
+2023-03-05 14:56:32.603+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1409, gcTime=0, gcCount=0}
+2023-03-05 15:02:05.196+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1355, gcTime=0, gcCount=0}
+2023-03-05 15:07:38.241+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1455, gcTime=0, gcCount=0}
+2023-03-05 15:13:11.317+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1501, gcTime=0, gcCount=0}
+2023-03-05 15:18:44.078+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1314, gcTime=0, gcCount=0}
+2023-03-05 15:24:16.975+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1429, gcTime=0, gcCount=0}
+2023-03-05 15:24:17.925+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=750, gcTime=0, gcCount=0}
+2023-03-05 15:29:49.719+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1307, gcTime=0, gcCount=0}
+2023-03-05 15:35:25.662+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1373, gcTime=0, gcCount=0}
+2023-03-05 15:35:26.621+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=758, gcTime=0, gcCount=0}
+2023-03-05 15:40:58.675+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1521, gcTime=0, gcCount=0}
+2023-03-05 15:46:31.515+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1427, gcTime=0, gcCount=0}
+2023-03-05 15:52:04.213+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1466, gcTime=0, gcCount=0}
+2023-03-05 15:57:37.087+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1498, gcTime=0, gcCount=0}
+2023-03-05 15:57:38.044+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=756, gcTime=0, gcCount=0}
+2023-03-05 16:03:09.770+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1486, gcTime=0, gcCount=0}
+2023-03-05 16:03:10.724+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=753, gcTime=0, gcCount=0}
+2023-03-05 16:08:42.442+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1329, gcTime=0, gcCount=0}
+2023-03-05 16:08:43.396+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 16:14:15.102+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1490, gcTime=0, gcCount=0}
+2023-03-05 16:14:16.056+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 16:19:48.135+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1377, gcTime=0, gcCount=0}
+2023-03-05 16:19:49.085+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=750, gcTime=0, gcCount=0}
+2023-03-05 16:25:21.211+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1443, gcTime=0, gcCount=0}
+2023-03-05 16:25:22.166+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=755, gcTime=0, gcCount=0}
+2023-03-05 16:30:54.041+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1419, gcTime=0, gcCount=0}
+2023-03-05 16:34:51.789+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1426, gcTime=0, gcCount=0}
+2023-03-05 16:34:52.736+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=747, gcTime=0, gcCount=0}
+2023-03-05 16:43:19.338+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1345, gcTime=0, gcCount=0}
+2023-03-05 16:43:20.298+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=759, gcTime=0, gcCount=0}
+2023-03-05 16:48:52.190+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1391, gcTime=0, gcCount=0}
+2023-03-05 16:54:25.280+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1429, gcTime=0, gcCount=0}
+2023-03-05 16:59:58.244+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1396, gcTime=0, gcCount=0}
+2023-03-05 17:05:30.928+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1331, gcTime=0, gcCount=0}
+2023-03-05 17:11:03.907+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1365, gcTime=0, gcCount=0}
+2023-03-05 17:16:36.904+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1339, gcTime=0, gcCount=0}
+2023-03-05 17:22:09.847+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1333, gcTime=0, gcCount=0}
+2023-03-05 17:27:32.599+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1482, gcTime=0, gcCount=0}
+2023-03-05 17:44:30.734+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1440, gcTime=0, gcCount=0}
+2023-03-05 17:53:27.508+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1424, gcTime=0, gcCount=0}
+2023-03-05 17:53:28.472+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=764, gcTime=0, gcCount=0}
+2023-03-05 17:59:00.390+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1395, gcTime=0, gcCount=0}
+2023-03-05 18:04:33.357+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1426, gcTime=0, gcCount=0}
+2023-03-05 18:10:06.312+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1415, gcTime=0, gcCount=0}
+2023-03-05 18:15:39.237+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1369, gcTime=0, gcCount=0}
+2023-03-05 18:21:12.289+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1400, gcTime=0, gcCount=0}
+2023-03-05 18:26:45.013+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1319, gcTime=0, gcCount=0}
+2023-03-05 18:31:35.761+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1329, gcTime=0, gcCount=0}
+2023-03-05 18:37:13.141+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1425, gcTime=0, gcCount=0}
+2023-03-05 18:37:14.096+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 18:42:45.918+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1488, gcTime=0, gcCount=0}
+2023-03-05 18:48:19.039+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1457, gcTime=0, gcCount=0}
+2023-03-05 18:53:55.027+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1386, gcTime=0, gcCount=0}
+2023-03-05 18:53:55.982+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 18:59:27.962+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1349, gcTime=0, gcCount=0}
+2023-03-05 19:05:00.583+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1365, gcTime=0, gcCount=0}
+2023-03-05 19:10:33.536+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1460, gcTime=0, gcCount=0}
+2023-03-05 19:16:06.275+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1444, gcTime=0, gcCount=0}
+2023-03-05 19:21:38.902+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1433, gcTime=0, gcCount=0}
+2023-03-05 19:27:11.943+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1508, gcTime=0, gcCount=0}
+2023-03-05 19:32:44.879+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1505, gcTime=0, gcCount=0}
+2023-03-05 19:38:17.867+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1343, gcTime=0, gcCount=0}
+2023-03-05 19:43:50.837+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1431, gcTime=0, gcCount=0}
+2023-03-05 19:49:23.759+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1331, gcTime=0, gcCount=0}
+2023-03-05 19:54:59.731+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1474, gcTime=0, gcCount=0}
+2023-03-05 19:55:00.689+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=757, gcTime=0, gcCount=0}
+2023-03-05 20:00:32.698+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1442, gcTime=0, gcCount=0}
+2023-03-05 20:06:05.595+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1411, gcTime=0, gcCount=0}
+2023-03-05 20:11:38.337+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1479, gcTime=0, gcCount=0}
+2023-03-05 20:17:11.327+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1339, gcTime=0, gcCount=0}
+2023-03-05 20:22:44.071+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1412, gcTime=0, gcCount=0}
+2023-03-05 20:28:16.791+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1353, gcTime=0, gcCount=0}
+2023-03-05 20:28:17.742+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=750, gcTime=0, gcCount=0}
+2023-03-05 20:33:49.792+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1391, gcTime=0, gcCount=0}
+2023-03-05 20:39:22.741+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1484, gcTime=0, gcCount=0}
+2023-03-05 20:44:55.632+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1431, gcTime=0, gcCount=0}
+2023-03-05 20:50:28.376+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1314, gcTime=0, gcCount=0}
+2023-03-05 20:56:04.401+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1427, gcTime=0, gcCount=0}
+2023-03-05 20:56:05.349+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=748, gcTime=0, gcCount=0}
+2023-03-05 21:01:37.411+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1474, gcTime=0, gcCount=0}
+2023-03-05 21:07:10.275+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1404, gcTime=0, gcCount=0}
+2023-03-05 21:12:43.215+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1365, gcTime=0, gcCount=0}
+2023-03-05 21:18:16.211+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1376, gcTime=0, gcCount=0}
+2023-03-05 21:18:17.165+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=753, gcTime=0, gcCount=0}
+2023-03-05 21:23:49.253+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1481, gcTime=0, gcCount=0}
+2023-03-05 21:23:50.206+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=752, gcTime=0, gcCount=0}
+2023-03-05 21:29:21.930+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1317, gcTime=0, gcCount=0}
+2023-03-05 21:29:22.880+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=750, gcTime=0, gcCount=0}
+2023-03-05 21:34:54.557+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1352, gcTime=0, gcCount=0}
+2023-03-05 21:34:55.508+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=751, gcTime=0, gcCount=0}
+2023-03-05 21:40:27.211+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1402, gcTime=0, gcCount=0}
+2023-03-05 21:40:28.178+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=766, gcTime=0, gcCount=0}
+2023-03-05 21:46:00.014+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1360, gcTime=0, gcCount=0}
+2023-03-05 21:51:32.826+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1355, gcTime=0, gcCount=0}
+2023-03-05 21:57:08.838+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1497, gcTime=0, gcCount=0}
+2023-03-05 21:57:09.800+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=762, gcTime=0, gcCount=0}
+2023-03-05 22:00:45.730+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1433, gcTime=0, gcCount=0}
+2023-03-05 22:00:46.689+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=759, gcTime=0, gcCount=0}
+2023-03-05 22:11:35.322+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1312, gcTime=0, gcCount=0}
+2023-03-05 22:11:36.278+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=756, gcTime=0, gcCount=0}
+2023-03-05 22:57:17.239+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1351, gcTime=0, gcCount=0}
+2023-03-05 22:57:18.111+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=756, gcTime=0, gcCount=0}
+2023-03-05 23:02:50.122+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1490, gcTime=0, gcCount=0}
+2023-03-05 23:02:51.080+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=758, gcTime=0, gcCount=0}
+2023-03-05 23:08:22.827+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1512, gcTime=0, gcCount=0}
+2023-03-05 23:08:23.780+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 23:13:56.842+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1418, gcTime=0, gcCount=0}
+2023-03-05 23:13:57.797+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=754, gcTime=0, gcCount=0}
+2023-03-05 23:18:24.862+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1501, gcTime=0, gcCount=0}
+2023-03-05 23:18:25.809+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=746, gcTime=0, gcCount=0}
+2023-03-05 23:19:17.010+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1568, gcTime=0, gcCount=0}
+2023-03-05 23:19:52.395+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] Shutdown started
+2023-03-05 23:19:52.504+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopping 'DatabaseId{95fdc8b4[neo4j]}'.
+2023-03-05 23:19:52.506+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] Requirement `Database unavailable` makes database neo4j unavailable.
+2023-03-05 23:19:52.506+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] DatabaseId{95fdc8b4[neo4j]} is unavailable.
+2023-03-05 23:19:52.509+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] Waiting for closing transactions.
+2023-03-05 23:19:52.511+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] All transactions are closed.
+2023-03-05 23:19:52.512+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [neo4j/95fdc8b4] Checkpoint triggered by "Database shutdown" @ txId: 1 checkpoint started...
+2023-03-05 23:19:53.791+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1131, gcTime=0, gcCount=0}
+2023-03-05 23:19:54.392+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [neo4j/95fdc8b4] Checkpoint triggered by "Database shutdown" @ txId: 1 checkpoint completed in 1s 879ms
+2023-03-05 23:19:54.406+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] [neo4j/95fdc8b4] No log version pruned. The strategy used was '1 days'. 
+2023-03-05 23:19:55.249+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopped 'DatabaseId{95fdc8b4[neo4j]}' successfully.
+2023-03-05 23:19:55.249+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopping 'DatabaseId{00000000[system]}'.
+2023-03-05 23:19:55.250+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] Requirement `Database unavailable` makes database system unavailable.
+2023-03-05 23:19:55.250+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] DatabaseId{00000000[system]} is unavailable.
+2023-03-05 23:19:55.250+0000 INFO  [o.n.k.d.Database] [system/00000000] Waiting for closing transactions.
+2023-03-05 23:19:55.251+0000 INFO  [o.n.k.d.Database] [system/00000000] All transactions are closed.
+2023-03-05 23:19:55.251+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [system/00000000] Checkpoint triggered by "Database shutdown" @ txId: 37 checkpoint started...
+2023-03-06 06:19:00.781+0000 WARN  [o.n.k.i.JvmChecker] The max heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 2147483648 bytes is used instead. If you are running neo4j server, you need to configure dbms.memory.heap.max_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xmx set to a value. You can run neo4j-admin memrec for memory configuration suggestions.
+2023-03-06 06:19:00.781+0000 WARN  [o.n.k.i.JvmChecker] The initial heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 134217728 bytes is used instead. If you are running neo4j server, you need to configure dbms.memory.heap.initial_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xms set to a value. You can run neo4j-admin memrec for memory configuration suggestions.
+2023-03-06 06:19:00.872+0000 WARN  [o.n.i.p.PageCache] The dbms.memory.pagecache.size setting has not been configured. It is recommended that this setting is always explicitly configured, to ensure the system has a balanced configuration. Until then, a computed heuristic value of 3221225472 bytes will be used instead. Run `neo4j-admin memrec` for memory configuration suggestions.
+2023-03-06 06:19:01.214+0000 INFO  [o.n.i.d.DiagnosticsManager] 
+                                                                ********************************************************************************
+                                                                                             [ System diagnostics ]                             
+                                                                ********************************************************************************
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ System memory information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Total Physical memory: 8.000GiB
+                                                                Free Physical memory: 61.10MiB
+                                                                Committed virtual memory: 36.20GiB
+                                                                Total swap space: 3.000GiB
+                                                                Free swap space: 1.235GiB
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                           [ JVM memory information ]                           
+                                                                --------------------------------------------------------------------------------
+                                                                Free  memory: 97.96MiB
+                                                                Total memory: 154.0MiB
+                                                                Max   memory: 2.000GiB
+                                                                Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.438MiB, used=1.153MiB, max=5.566MiB, threshold=0B
+                                                                Memory Pool: Metaspace (Non-heap memory): committed=29.25MiB, used=28.27MiB, max=-1B, threshold=0B
+                                                                Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=4.563MiB, used=4.557MiB, max=117.2MiB, threshold=0B
+                                                                Memory Pool: Compressed Class Space (Non-heap memory): committed=3.574MiB, used=3.173MiB, max=1.000GiB, threshold=0B
+                                                                Memory Pool: G1 Eden Space (Heap memory): committed=93.00MiB, used=41.00MiB, max=-1B, threshold=?
+                                                                Memory Pool: G1 Old Gen (Heap memory): committed=58.00MiB, used=10.04MiB, max=2.000GiB, threshold=0B
+                                                                Memory Pool: G1 Survivor Space (Heap memory): committed=3.000MiB, used=3.000MiB, max=-1B, threshold=?
+                                                                Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.438MiB, used=1.078MiB, max=117.2MiB, threshold=0B
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                        [ Operating system information ]                        
+                                                                --------------------------------------------------------------------------------
+                                                                Operating System: Mac OS X; version: 10.16; arch: x86_64; cpus: 8
+                                                                Max number of file descriptors: 10240
+                                                                Number of open file descriptors: 177
+                                                                Process id: 14000
+                                                                Byte order: LITTLE_ENDIAN
+                                                                Local timezone: Asia/Shanghai
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                              [ JVM information ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                VM Name: OpenJDK 64-Bit Server VM
+                                                                VM Vendor: AdoptOpenJDK
+                                                                VM Version: 11.0.11+9
+                                                                JIT compiler: HotSpot 64-Bit Tiered Compilers
+                                                                VM Arguments: [-XX:+UseG1GC, -XX:-OmitStackTraceInFastThrow, -XX:+AlwaysPreTouch, -XX:+UnlockExperimentalVMOptions, -XX:+TrustFinalNonStaticFields, -XX:+DisableExplicitGC, -XX:MaxInlineLevel=15, -XX:-UseBiasedLocking, -Djdk.nio.maxCachedBufferSize=262144, -Dio.netty.tryReflectionSetAccessible=true, -Djdk.tls.ephemeralDHKeySize=2048, -Djdk.tls.rejectClientInitiatedRenegotiation=true, -XX:FlightRecorderOptions=stackdepth=256, -XX:+UnlockDiagnosticVMOptions, -XX:+DebugNonSafepoints, -Dlog4j2.disable.jmx=true, -Dfile.encoding=UTF-8]
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                               [ Java classpath ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-unsafe-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-spatial-index-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-transport-native-epoll-4.1.86.Final-linux-aarch_64.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-native-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-io-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-common-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/hk2-locator-2.6.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-data-collector-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/reactive-streams-1.0.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-codec-http-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-kernel-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-container-servlet-core-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-resolver-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/conf/*
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-ast-factory-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/server-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-core-2.13.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-event-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-common-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-runtime-util-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-annotations-2.13.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-common-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-jaxrs-base-2.13.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/ipaddress-5.3.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-config-core-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/hk2-utils-2.6.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/scala-library-2.12.13.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jakarta.activation-api-1.2.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-capabilities-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-crypto-hash-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-bolt-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/bcpkix-jdk15on-1.69.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-transport-classes-epoll-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-diagnostics-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-schema-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/stax-ex-1.8.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-lock-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/javassist-3.25.0-GA.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-graphdb-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jakarta.ws.rs-api-2.1.6.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-expression-evaluator-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jakarta.annotation-api-1.3.5.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-transport-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-resource-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-http-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-batch-insert-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-front-end-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-layout-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-compress-1.21.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-hk2-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-storage-engine-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-ssl-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/slf4j-api-1.7.30.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-config-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-import-util-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-planner-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-macros-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-index-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/eclipse-collections-api-10.4.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-lucene-index-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-cache-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-dbms-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-logging-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/javax.servlet-api-3.1.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-concurrent-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jna-5.9.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-webapp-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-server-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/hk2-api-2.6.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/lucene-analyzers-common-8.11.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/cypher-ast-factory-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/caffeine-3.0.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-ir-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-logical-plans-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-javacc-parser-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-jaxrs-json-provider-2.13.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-graph-algo-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/lucene-core-8.11.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-expressions-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-browser-5.4.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/zstd-proxy-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-xml-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-config-ogdl-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-text-1.10.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-collections-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jaxb-runtime-2.3.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-security-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-crypto-cipher-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/istack-commons-runtime-3.0.8.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-import-tool-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-procedure-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-command-line-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-client-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-io-2.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-logging-1.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-kernel-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/eclipse-collections-10.4.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-databind-2.13.4.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jctools-core-3.3.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-ast-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-beanutils-1.9.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jakarta.inject-2.6.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-buffer-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/WMI4Java-1.6.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-transport-native-unix-common-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/FastInfoset-1.2.16.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-collections-3.2.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-parser-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-push-to-cloud-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/zstd-jni-1.5.0-4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-csv-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/annotations-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-consistency-check-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-record-storage-engine-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jaxb-api-2.3.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-crypto-core-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-util-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/parboiled-scala_2.12-1.2.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-core-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-configuration-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-procedure-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/picocli-4.6.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/bcutil-jdk15on-1.69.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-handler-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-server-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/mercator_2.12-0.2.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-fulltext-index-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/bcprov-jdk15on-1.69.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-values-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-rewriting-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-util-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-codegen-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/scala-reflect-2.12.13.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-fabric-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jamm-0.3.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/lucene-backward-codecs-8.11.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/lucene-queryparser-8.11.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jPowerShell-3.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/magnolia_2.12-0.17.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-security-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/txw2-2.3.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/slf4j-nop-1.7.30.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-storage-engine-util-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jersey-container-servlet-2.34.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-interpreted-runtime-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-planner-spi-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-codec-4.1.86.Final.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-servlet-9.4.48.v20220622.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-server-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/reactor-core-3.4.15.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-monitoring-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-cypher-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-wal-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/parboiled-core-1.2.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jettison-1.5.3.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-id-generator-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/plugins/*
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jProcesses-1.6.5.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-buffers-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/commons-lang3-3.12.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-token-api-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/neo4j-exceptions-4.4.18.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jakarta.validation-api-2.0.2.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/netty-transport-native-epoll-4.1.86.Final-linux-x86_64.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jackson-module-jaxb-annotations-2.13.4.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/javax.ws.rs-api-2.1.1.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/shiro-lang-1.11.0.jar
+                                                                 [classpath] /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/lib/jetty-io-9.4.48.v20220622.jar
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ Library path ]                                
+                                                                --------------------------------------------------------------------------------
+                                                                /Users/zhengyan/Library/Java/Extensions
+                                                                /Library/Java/Extensions
+                                                                /Network/Library/Java/Extensions
+                                                                /System/Library/Java/Extensions
+                                                                /usr/lib/java
+                                                                /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/bin
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                             [ System properties ]                              
+                                                                --------------------------------------------------------------------------------
+                                                                gopherProxySet = false
+                                                                awt.toolkit = sun.lwawt.macosx.LWCToolkit
+                                                                socksProxyHost = 127.0.0.1
+                                                                http.proxyHost = 127.0.0.1
+                                                                jdk.tls.rejectClientInitiatedRenegotiation = true
+                                                                sun.cpu.isalist = 
+                                                                sun.jnu.encoding = UTF-8
+                                                                https.proxyPort = 7890
+                                                                sun.arch.data.model = 64
+                                                                user.timezone = Asia/Shanghai
+                                                                sun.java.launcher = SUN_STANDARD
+                                                                user.country = CN
+                                                                sun.boot.library.path = /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/lib
+                                                                sun.java.command = org.neo4j.server.CommunityEntryPoint --home-dir=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4 --config-dir=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/conf
+                                                                http.nonProxyHosts = 192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|127.0.0.1|localhost|*.localhost|local|*.local|timestamp.apple.com|*.timestamp.apple.com
+                                                                jdk.debug = release
+                                                                sun.cpu.endian = little
+                                                                io.netty.tryReflectionSetAccessible = true
+                                                                user.home = /Users/zhengyan
+                                                                user.language = zh
+                                                                file.separator = /
+                                                                https.proxyHost = 127.0.0.1
+                                                                jdk.tls.ephemeralDHKeySize = 2048
+                                                                user.script = Hans
+                                                                sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+                                                                ftp.nonProxyHosts = 192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|127.0.0.1|localhost|*.localhost|local|*.local|timestamp.apple.com|*.timestamp.apple.com
+                                                                user.name = zhengyan
+                                                                path.separator = :
+                                                                jdk.nio.maxCachedBufferSize = 262144
+                                                                file.encoding = UTF-8
+                                                                jnidispatch.path = /Users/zhengyan/Library/Caches/JNA/temp/jna11978786492056336305.tmp
+                                                                jna.loaded = true
+                                                                user.dir = /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/bin
+                                                                socksProxyPort = 7890
+                                                                sun.os.patch.level = unknown
+                                                                sun.io.unicode.encoding = UnicodeBig
+                                                                socksNonProxyHosts = 192.168.0.0/16|*.192.168.0.0/16|10.0.0.0/8|*.10.0.0.0/8|172.16.0.0/12|*.172.16.0.0/12|127.0.0.1|localhost|*.localhost|local|*.local|timestamp.apple.com|*.timestamp.apple.com
+                                                                log4j2.disable.jmx = true
+                                                                http.proxyPort = 7890
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                      [ (IANA) TimeZone database version ]                      
+                                                                --------------------------------------------------------------------------------
+                                                                  TimeZone version: 2021a (available for 600 zone identifiers)
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                            [ Network information ]                             
+                                                                --------------------------------------------------------------------------------
+                                                                Interface en8:
+                                                                    address: fe80:0:0:0:9877:95ff:feee:2a7f%en8
+                                                                Interface utun2:
+                                                                    address: fe80:0:0:0:ce81:b1c:bd2c:69e%utun2
+                                                                Interface utun1:
+                                                                    address: fe80:0:0:0:61c2:b2aa:af98:732d%utun1
+                                                                Interface utun0:
+                                                                    address: fe80:0:0:0:f1e8:777c:b411:3a55%utun0
+                                                                Interface llw0:
+                                                                    address: fe80:0:0:0:20d8:d3ff:feb1:babd%llw0
+                                                                Interface awdl0:
+                                                                    address: fe80:0:0:0:20d8:d3ff:feb1:babd%awdl0
+                                                                Interface en5:
+                                                                    address: fe80:0:0:0:aede:48ff:fe00:1122%en5
+                                                                Interface en9:
+                                                                    address: fe80:0:0:0:35:5f67:d1e5:41ae%en9
+                                                                    address: 169.254.95.165
+                                                                Interface en0:
+                                                                    address: fe80:0:0:0:146d:82ad:ce0b:71af%en0
+                                                                    address: 10.200.55.123
+                                                                Interface lo0:
+                                                                    address: fe80:0:0:0:0:0:0:1%lo0
+                                                                    address: 0:0:0:0:0:0:0:1%lo0
+                                                                    address: 127.0.0.1
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ Native access information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Native access details: Native access is not available for current platform.
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ DBMS config ]                                 
+                                                                --------------------------------------------------------------------------------
+                                                                DBMS provided settings:
+                                                                dbms.connector.bolt.enabled=true
+                                                                dbms.connector.http.enabled=true
+                                                                dbms.connector.https.enabled=false
+                                                                dbms.directories.import=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/import
+                                                                dbms.directories.neo4j_home=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4
+                                                                dbms.jvm.additional=-XX:+UseG1GC
+-XX:-OmitStackTraceInFastThrow
+-XX:+AlwaysPreTouch
+-XX:+UnlockExperimentalVMOptions
+-XX:+TrustFinalNonStaticFields
+-XX:+DisableExplicitGC
+-XX:MaxInlineLevel=15
+-XX:-UseBiasedLocking
+-Djdk.nio.maxCachedBufferSize=262144
+-Dio.netty.tryReflectionSetAccessible=true
+-Djdk.tls.ephemeralDHKeySize=2048
+-Djdk.tls.rejectClientInitiatedRenegotiation=true
+-XX:FlightRecorderOptions=stackdepth=256
+-XX:+UnlockDiagnosticVMOptions
+-XX:+DebugNonSafepoints
+-Dlog4j2.disable.jmx=true
+                                                                dbms.tx_log.rotation.retention_policy=1 days
+                                                                dbms.tx_state.memory_allocation=ON_HEAP
+                                                                dbms.windows_service_name=neo4j
+                                                                
+2023-03-06 06:19:01.278+0000 INFO  [o.n.d.i.DefaultIdentityModule] Found ServerId on disk: ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-06 06:19:01.279+0000 INFO  [o.n.d.i.DefaultIdentityModule] This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-06 06:19:01.286+0000 INFO  [o.n.g.f.EditionLocksFactories] Locking implementation 'forseti' selected.
+2023-03-06 06:19:03.007+0000 INFO  [o.n.s.CommunityNeoWebServer] ======== Neo4j 4.4.18 ========
+2023-03-06 06:19:03.026+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Creating 'DatabaseId{00000000[system]}'.
+2023-03-06 06:19:03.141+0000 INFO  [o.n.b.BoltServer] Bolt server loaded
+2023-03-06 06:19:03.204+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Starting 'DatabaseId{00000000[system]}'.
+2023-03-06 06:19:03.467+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [system/00000000] Selected RecordFormat:PageAlignedV4_3[AF4.3.0] record format from store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system
+2023-03-06 06:19:03.469+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [system/00000000] Selected format 'RecordFormat:PageAlignedV4_3[AF4.3.0]' for existing store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system with format 'RecordFormat:PageAlignedV4_3[AF4.3.0]'
+2023-03-06 06:19:03.695+0000 INFO  [o.n.k.i.t.l.f.c.CheckpointLogFile] [system/00000000] Scanning log file with version 0 for checkpoint entries
+2023-03-06 06:19:03.746+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [system/00000000] Selected RecordFormat:PageAlignedV4_3[AF4.3.0] record format from store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system
+2023-03-06 06:19:03.746+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [system/00000000] Format not configured for store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system. Selected format from the store files: RecordFormat:PageAlignedV4_3[AF4.3.0]
+2023-03-06 06:19:04.691+0000 INFO  [o.n.i.d.DiagnosticsManager] [system/00000000] 
+                                                                [system/00000000] ********************************************************************************
+                                                                [system/00000000]                               [ Database: system ]                              
+                                                                [system/00000000] ********************************************************************************
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                                   [ Version ]                                   
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] DBMS: community single StoreId{creationTime=1678021911738, randomId=3037417462315544773, storeVersion=3471768636287762695, upgradeTime=1678021911738, upgradeTxId=1}
+                                                                [system/00000000] Kernel version: 4.4.18
+                                                                [system/00000000] 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                                 [ Store files ]                                 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] Disk space on partition (Total / Free / Free %): 250685575168 / 51759853568 / 20
+                                                                [system/00000000] Storage files stored on file store: apfs
+                                                                [system/00000000] Storage files: (filename : modification date - size)
+                                                                [system/00000000]   database_lock: 2023-03-05T21:11:52+08:00 - 0B
+                                                                [system/00000000]   neostore: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.counts.db: 2023-03-06T14:19:04+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.indexstats.db: 2023-03-06T07:19:55+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.labelscanstore.db: 2023-03-06T07:19:55+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.labeltokenstore.db: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.labeltokenstore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.labeltokenstore.db.names: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.labeltokenstore.db.names.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.nodestore.db: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.nodestore.db.id: 2023-03-06T14:19:03+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.nodestore.db.labels: 2023-03-05T21:11:49+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.nodestore.db.labels.id: 2023-03-06T14:19:03+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.propertystore.db: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.propertystore.db.arrays: 2023-03-05T21:11:50+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.propertystore.db.arrays.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.propertystore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.propertystore.db.index: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.propertystore.db.index.id: 2023-03-06T14:19:03+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.propertystore.db.index.keys: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.propertystore.db.index.keys.id: 2023-03-06T14:19:03+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.propertystore.db.strings: 2023-03-05T21:20:06+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.propertystore.db.strings.id: 2023-03-06T14:19:04+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.relationshipgroupstore.db: 2023-03-05T21:11:51+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.relationshipgroupstore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.relationshipgroupstore.degrees.db: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.relationshipstore.db: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.relationshipstore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.relationshiptypescanstore.db: 2023-03-06T07:19:55+08:00 - 48.00KiB
+                                                                [system/00000000]   neostore.relationshiptypestore.db: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.relationshiptypestore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.relationshiptypestore.db.names: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.relationshiptypestore.db.names.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   neostore.schemastore.db: 2023-03-05T21:20:07+08:00 - 8.000KiB
+                                                                [system/00000000]   neostore.schemastore.db.id: 2023-03-06T14:19:04+08:00 - 40.00KiB
+                                                                [system/00000000]   schema:
+                                                                [system/00000000]     index:
+                                                                [system/00000000]       native-btree-1.0:
+                                                                [system/00000000]         3:
+                                                                [system/00000000]           index-3: 2023-03-06T07:19:55+08:00 - 48.00KiB
+                                                                [system/00000000]         - Total: 2023-03-05T21:20:45+08:00 - 48.00KiB
+                                                                [system/00000000]         4:
+                                                                [system/00000000]           index-4: 2023-03-06T07:19:55+08:00 - 48.00KiB
+                                                                [system/00000000]         - Total: 2023-03-05T21:20:36+08:00 - 48.00KiB
+                                                                [system/00000000]         7:
+                                                                [system/00000000]           index-7: 2023-03-05T21:20:11+08:00 - 48.00KiB
+                                                                [system/00000000]         - Total: 2023-03-05T21:20:51+08:00 - 48.00KiB
+                                                                [system/00000000]       - Total: 2023-03-05T21:20:51+08:00 - 144.0KiB
+                                                                [system/00000000]     - Total: 2023-03-05T21:20:51+08:00 - 144.0KiB
+                                                                [system/00000000]   - Total: 2023-03-05T21:20:51+08:00 - 144.0KiB
+                                                                [system/00000000] Storage summary: 
+                                                                [system/00000000]   Total size of store: 1.047MiB
+                                                                [system/00000000]   Total size of mapped files: 360.0KiB
+                                                                [system/00000000] 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                               [ Transaction log ]                               
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] Transaction log files stored on file store: apfs
+                                                                [system/00000000] Transaction log files:
+                                                                [system/00000000]  - existing transaction log versions 0-0
+                                                                [system/00000000]  - oldest transaction 2 found in log with version 0
+                                                                [system/00000000] Checkpoint log files:
+                                                                [system/00000000]  - existing checkpoint log versions 0-0
+                                                                [system/00000000]  - last checkpoint: CheckpointInfo{transactionLogPosition=LogPosition{logVersion=0, byteOffset=26736}, checkpointEntryPosition=LogPosition{logVersion=0, byteOffset=64}, storeId=StoreId{creationTime=1678021911738, randomId=3037417462315544773, storeVersion=3471768636287762695, upgradeTime=1678021911738, upgradeTxId=1}}
+                                                                [system/00000000] 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                                   [ Id usage ]                                  
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] ArrayPropertyStore[neostore.nodestore.db.labels]: used=1 high=0
+                                                                [system/00000000] NodeStore[neostore.nodestore.db]: used=6 high=5
+                                                                [system/00000000] StringPropertyStore[neostore.propertystore.db.index.keys]: used=57 high=56
+                                                                [system/00000000] PropertyIndexStore[neostore.propertystore.db.index]: used=36 high=35
+                                                                [system/00000000] StringPropertyStore[neostore.propertystore.db.strings]: used=5 high=4
+                                                                [system/00000000] ArrayPropertyStore[neostore.propertystore.db.arrays]: used=1 high=0
+                                                                [system/00000000] PropertyStore[neostore.propertystore.db]: used=72 high=71
+                                                                [system/00000000] RelationshipStore[neostore.relationshipstore.db]: used=2 high=1
+                                                                [system/00000000] StringPropertyStore[neostore.relationshiptypestore.db.names]: used=2 high=1
+                                                                [system/00000000] RelationshipTypeStore[neostore.relationshiptypestore.db]: used=1 high=0
+                                                                [system/00000000] StringPropertyStore[neostore.labeltokenstore.db.names]: used=5 high=4
+                                                                [system/00000000] LabelTokenStore[neostore.labeltokenstore.db]: used=4 high=3
+                                                                [system/00000000] SchemaStore[neostore.schemastore.db]: used=9 high=8
+                                                                [system/00000000] RelationshipGroupStore[neostore.relationshipgroupstore.db]: used=1 high=0
+                                                                [system/00000000] NeoStore[neostore]: used=-1 high=-1
+                                                                [system/00000000] 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                               [ Neostore records ]                              
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] TIME (Creation time): 1678021911738
+                                                                [system/00000000] RANDOM_NUMBER (Random number for store id): 3037417462315544773
+                                                                [system/00000000] LOG_VERSION (Current log version): 0
+                                                                [system/00000000] LAST_TRANSACTION_ID (Last committed transaction): 37
+                                                                [system/00000000] STORE_VERSION (Store format version): 3471768636287762695 (AF4.3.0)
+                                                                [system/00000000] FIRST_GRAPH_PROPERTY (First property record containing graph properties): -1
+                                                                [system/00000000] LAST_CONSTRAINT_TRANSACTION (Last committed transaction containing constraint changes): 30
+                                                                [system/00000000] UPGRADE_TRANSACTION_ID (Transaction id most recent upgrade was performed at): 1
+                                                                [system/00000000] UPGRADE_TIME (Time of last upgrade): 1678021911738
+                                                                [system/00000000] LAST_TRANSACTION_CHECKSUM (Checksum of last committed transaction): 693745639
+                                                                [system/00000000] UPGRADE_TRANSACTION_CHECKSUM (Checksum of transaction id the most recent upgrade was performed at): -559063315
+                                                                [system/00000000] LAST_CLOSED_TRANSACTION_LOG_VERSION (Log version where the last transaction commit entry has been written into): 0
+                                                                [system/00000000] LAST_CLOSED_TRANSACTION_LOG_BYTE_OFFSET (Byte offset in the log file where the last transaction commit entry has been written into): 26736
+                                                                [system/00000000] LAST_TRANSACTION_COMMIT_TIMESTAMP (Commit time timestamp for last committed transaction): 1678021938740
+                                                                [system/00000000] UPGRADE_TRANSACTION_COMMIT_TIMESTAMP (Commit timestamp of transaction the most recent upgrade was performed at): 0
+                                                                [system/00000000] LAST_MISSING_STORE_FILES_RECOVERY_TIMESTAMP (Timestamp of last attempt to perform a recovery on the store with missing files.): -1
+                                                                [system/00000000] EXTERNAL_STORE_UUID_MOST_SIGN_BITS (Database identifier exposed as external store identity. Generated on creation and never updated. Most significant bits.): 6398561191121604353
+                                                                [system/00000000] EXTERNAL_STORE_UUID_LEAST_SIGN_BITS (Database identifier exposed as external store identity. Generated on creation and never updated. Least significant bits): -4907507826290328789
+                                                                [system/00000000] CHECKPOINT_LOG_VERSION (Current checkpoint log version): 0
+                                                                [system/00000000] KERNEL_VERSION (The kernel version (also transaction log version) that is currently being used when writing new transactions): 4
+                                                                [system/00000000] DATABASE_ID_MOST_SIGN_BITS (The last used DatabaseId for this database. Most significant bits): -9223372036854775808
+                                                                [system/00000000] DATABASE_ID_LEAST_SIGN_BITS (The last used DatabaseId for this database. Least significant bits): -9223372036854775808
+                                                                [system/00000000] 
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000]                                [ Store versions ]                               
+                                                                [system/00000000] --------------------------------------------------------------------------------
+                                                                [system/00000000] ArrayPropertyStore[neostore.nodestore.db.labels] AF4.3.0
+                                                                [system/00000000] NodeStore[neostore.nodestore.db] AF4.3.0
+                                                                [system/00000000] StringPropertyStore[neostore.propertystore.db.index.keys] AF4.3.0
+                                                                [system/00000000] PropertyIndexStore[neostore.propertystore.db.index] AF4.3.0
+                                                                [system/00000000] StringPropertyStore[neostore.propertystore.db.strings] AF4.3.0
+                                                                [system/00000000] ArrayPropertyStore[neostore.propertystore.db.arrays] AF4.3.0
+                                                                [system/00000000] PropertyStore[neostore.propertystore.db] AF4.3.0
+                                                                [system/00000000] RelationshipStore[neostore.relationshipstore.db] AF4.3.0
+                                                                [system/00000000] StringPropertyStore[neostore.relationshiptypestore.db.names] AF4.3.0
+                                                                [system/00000000] RelationshipTypeStore[neostore.relationshiptypestore.db] AF4.3.0
+                                                                [system/00000000] StringPropertyStore[neostore.labeltokenstore.db.names] AF4.3.0
+                                                                [system/00000000] LabelTokenStore[neostore.labeltokenstore.db] AF4.3.0
+                                                                [system/00000000] SchemaStore[neostore.schemastore.db] AF4.3.0
+                                                                [system/00000000] RelationshipGroupStore[neostore.relationshipgroupstore.db] AF4.3.0
+                                                                [system/00000000] NeoStore[neostore] AF4.3.0
+                                                                [system/00000000] 
+2023-03-06 06:19:04.788+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job registered: descriptor=Index( id=1, name='index_343aff4e', type='TOKEN LOOKUP', schema=(:<any-labels>), indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.labelscanstore.db
+2023-03-06 06:19:04.788+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job started: descriptor=Index( id=1, name='index_343aff4e', type='TOKEN LOOKUP', schema=(:<any-labels>), indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.labelscanstore.db
+2023-03-06 06:19:04.791+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job finished: descriptor=Index( id=1, name='index_343aff4e', type='TOKEN LOOKUP', schema=(:<any-labels>), indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.labelscanstore.db Number of pages visited: 3, Number of tree nodes: 2, Number of cleaned crashed pointers: 0, Time spent: 1ms
+2023-03-06 06:19:04.791+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job closed: descriptor=Index( id=1, name='index_343aff4e', type='TOKEN LOOKUP', schema=(:<any-labels>), indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.labelscanstore.db
+2023-03-06 06:19:04.838+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job registered: descriptor=Index( id=2, name='index_f7700477', type='TOKEN LOOKUP', schema=-[:<any-types>]-, indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.relationshiptypescanstore.db
+2023-03-06 06:19:04.838+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job started: descriptor=Index( id=2, name='index_f7700477', type='TOKEN LOOKUP', schema=-[:<any-types>]-, indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.relationshiptypescanstore.db
+2023-03-06 06:19:04.840+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job finished: descriptor=Index( id=2, name='index_f7700477', type='TOKEN LOOKUP', schema=-[:<any-types>]-, indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.relationshiptypescanstore.db Number of pages visited: 3, Number of tree nodes: 2, Number of cleaned crashed pointers: 0, Time spent: 1ms
+2023-03-06 06:19:04.840+0000 INFO  [o.n.k.i.i.s.TokenIndexProvider] [system/00000000] Schema index cleanup job closed: descriptor=Index( id=2, name='index_f7700477', type='TOKEN LOOKUP', schema=-[:<any-types>]-, indexProvider='token-lookup-1.0' ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/neostore.relationshiptypescanstore.db
+2023-03-06 06:19:04.912+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job registered: descriptor=Index( id=3, name='constraint_375161cd', type='UNIQUE BTREE', schema=(:Label[0] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=6 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/3/index-3
+2023-03-06 06:19:04.913+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job started: descriptor=Index( id=3, name='constraint_375161cd', type='UNIQUE BTREE', schema=(:Label[0] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=6 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/3/index-3
+2023-03-06 06:19:04.914+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job finished: descriptor=Index( id=3, name='constraint_375161cd', type='UNIQUE BTREE', schema=(:Label[0] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=6 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/3/index-3 Number of pages visited: 3, Number of tree nodes: 2, Number of cleaned crashed pointers: 0, Time spent: 1ms
+2023-03-06 06:19:04.914+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job closed: descriptor=Index( id=3, name='constraint_375161cd', type='UNIQUE BTREE', schema=(:Label[0] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=6 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/3/index-3
+2023-03-06 06:19:04.957+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job registered: descriptor=Index( id=4, name='constraint_42eb0b7c', type='UNIQUE BTREE', schema=(:Label[1] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=5 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/4/index-4
+2023-03-06 06:19:04.958+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job started: descriptor=Index( id=4, name='constraint_42eb0b7c', type='UNIQUE BTREE', schema=(:Label[1] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=5 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/4/index-4
+2023-03-06 06:19:04.960+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job finished: descriptor=Index( id=4, name='constraint_42eb0b7c', type='UNIQUE BTREE', schema=(:Label[1] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=5 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/4/index-4 Number of pages visited: 3, Number of tree nodes: 2, Number of cleaned crashed pointers: 0, Time spent: 1ms
+2023-03-06 06:19:04.960+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job closed: descriptor=Index( id=4, name='constraint_42eb0b7c', type='UNIQUE BTREE', schema=(:Label[1] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=5 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/4/index-4
+2023-03-06 06:19:05.005+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job registered: descriptor=Index( id=7, name='constraint_e31771aa', type='UNIQUE BTREE', schema=(:Label[3] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=8 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/7/index-7
+2023-03-06 06:19:05.005+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job started: descriptor=Index( id=7, name='constraint_e31771aa', type='UNIQUE BTREE', schema=(:Label[3] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=8 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/7/index-7
+2023-03-06 06:19:05.006+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job finished: descriptor=Index( id=7, name='constraint_e31771aa', type='UNIQUE BTREE', schema=(:Label[3] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=8 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/7/index-7 Number of pages visited: 3, Number of tree nodes: 2, Number of cleaned crashed pointers: 0, Time spent: 0ms
+2023-03-06 06:19:05.006+0000 INFO  [o.n.k.i.i.s.GenericNativeIndexProvider] [system/00000000] Schema index cleanup job closed: descriptor=Index( id=7, name='constraint_e31771aa', type='UNIQUE BTREE', schema=(:Label[3] {PropertyKey[10]}), indexProvider='native-btree-1.0', owningConstraint=8 ), indexFile=/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/system/schema/index/native-btree-1.0/7/index-7
+2023-03-06 06:19:05.008+0000 INFO  [o.n.k.i.a.i.IndexingService] [system/00000000] IndexingService.init: indexes not specifically mentioned above are ONLINE
+2023-03-06 06:19:05.032+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] Requirement `Database unavailable` makes database system unavailable.
+2023-03-06 06:19:05.033+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] DatabaseId{00000000[system]} is unavailable.
+2023-03-06 06:19:05.066+0000 INFO  [o.n.k.d.Database] [system/00000000] Starting transaction log [/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/transactions/system/neostore.transaction.db.0] at version=0
+2023-03-06 06:19:05.071+0000 INFO  [o.n.k.d.Database] [system/00000000] Starting transaction log [/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/transactions/system/checkpoint.0] at version=0
+2023-03-06 06:19:05.078+0000 INFO  [o.n.k.i.a.i.IndexingService] [system/00000000] IndexingService.start: indexes not specifically mentioned above are ONLINE
+2023-03-06 06:19:05.130+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] Fulfilling of requirement 'Database unavailable' makes database system available.
+2023-03-06 06:19:05.130+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] DatabaseId{00000000[system]} is ready.
+2023-03-06 06:19:05.130+0000 INFO  [o.n.m.DatabaseHealth] [system/00000000] Database health set to OK
+2023-03-06 06:19:05.287+0000 INFO  [o.n.s.s.s.UserSecurityGraphComponent] Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-06 06:19:05.287+0000 INFO  [o.n.s.s.s.UserSecurityGraphComponent] Updating the initial password in component 'security-users'
+2023-03-06 06:19:05.299+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Creating 'DatabaseId{95fdc8b4[neo4j]}'.
+2023-03-06 06:19:05.302+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Starting 'DatabaseId{95fdc8b4[neo4j]}'.
+2023-03-06 06:19:05.326+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [neo4j/95fdc8b4] Selected RecordFormat:PageAlignedV4_3[AF4.3.0] record format from store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/neo4j
+2023-03-06 06:19:05.326+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [neo4j/95fdc8b4] Selected format 'RecordFormat:PageAlignedV4_3[AF4.3.0]' for existing store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/neo4j with format 'RecordFormat:PageAlignedV4_3[AF4.3.0]'
+2023-03-06 06:19:05.456+0000 INFO  [o.n.k.i.t.l.f.c.CheckpointLogFile] [neo4j/95fdc8b4] Scanning log file with version 0 for checkpoint entries
+2023-03-06 06:19:05.478+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [neo4j/95fdc8b4] Selected RecordFormat:PageAlignedV4_3[AF4.3.0] record format from store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/neo4j
+2023-03-06 06:19:05.479+0000 INFO  [o.n.k.i.s.f.RecordFormatSelector] [neo4j/95fdc8b4] Format not configured for store /Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/databases/neo4j. Selected format from the store files: RecordFormat:PageAlignedV4_3[AF4.3.0]
+2023-03-06 06:19:06.166+0000 INFO  [o.n.i.d.DiagnosticsManager] [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] ********************************************************************************
+                                                                [neo4j/95fdc8b4]                               [ Database: neo4j ]                               
+                                                                [neo4j/95fdc8b4] ********************************************************************************
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                                   [ Version ]                                   
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] DBMS: community single StoreId{creationTime=1678021817758, randomId=-8448200228428882389, storeVersion=3471768636287762695, upgradeTime=1678021817758, upgradeTxId=1}
+                                                                [neo4j/95fdc8b4] Kernel version: 4.4.18
+                                                                [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                                 [ Store files ]                                 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] Disk space on partition (Total / Free / Free %): 250685575168 / 51759538176 / 20
+                                                                [neo4j/95fdc8b4] Storage files stored on file store: apfs
+                                                                [neo4j/95fdc8b4] Storage files: (filename : modification date - size)
+                                                                [neo4j/95fdc8b4]   database_lock: 2023-03-05T21:11:57+08:00 - 0B
+                                                                [neo4j/95fdc8b4]   neostore: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.counts.db: 2023-03-06T14:19:06+08:00 - 48.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.indexstats.db: 2023-03-06T07:19:54+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.labelscanstore.db: 2023-03-06T07:19:54+08:00 - 232.0KiB
+                                                                [neo4j/95fdc8b4]   neostore.labeltokenstore.db: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.labeltokenstore.db.id: 2023-03-06T14:19:06+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.labeltokenstore.db.names: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.labeltokenstore.db.names.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.nodestore.db: 2023-03-05T21:10:28+08:00 - 4.664MiB
+                                                                [neo4j/95fdc8b4]   neostore.nodestore.db.id: 2023-03-06T14:19:05+08:00 - 384.0KiB
+                                                                [neo4j/95fdc8b4]   neostore.nodestore.db.labels: 2023-03-05T21:10:15+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.nodestore.db.labels.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db: 2023-03-05T21:10:28+08:00 - 25.27MiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.arrays: 2023-03-05T21:10:16+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.arrays.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.id: 2023-03-06T14:19:05+08:00 - 632.0KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.index: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.index.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.index.keys: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.index.keys.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.strings: 2023-03-05T21:10:25+08:00 - 13.57MiB
+                                                                [neo4j/95fdc8b4]   neostore.propertystore.db.strings.id: 2023-03-06T14:19:05+08:00 - 48.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshipgroupstore.db: 2023-03-05T21:10:28+08:00 - 16.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshipgroupstore.db.id: 2023-03-06T14:19:06+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshipgroupstore.degrees.db: 2023-03-06T14:19:06+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshipstore.db: 2023-03-05T21:10:28+08:00 - 11.18MiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshipstore.db.id: 2023-03-06T14:19:05+08:00 - 48.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshiptypescanstore.db: 2023-03-06T07:19:54+08:00 - 384.0KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshiptypestore.db: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshiptypestore.db.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshiptypestore.db.names: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.relationshiptypestore.db.names.id: 2023-03-06T14:19:05+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4]   neostore.schemastore.db: 2023-03-05T21:10:28+08:00 - 8.000KiB
+                                                                [neo4j/95fdc8b4]   neostore.schemastore.db.id: 2023-03-06T14:19:06+08:00 - 40.00KiB
+                                                                [neo4j/95fdc8b4] Storage summary: 
+                                                                [neo4j/95fdc8b4]   Total size of store: 56.98MiB
+                                                                [neo4j/95fdc8b4]   Total size of mapped files: 55.38MiB
+                                                                [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                               [ Transaction log ]                               
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] Transaction log files stored on file store: apfs
+                                                                [neo4j/95fdc8b4] Transaction log files:
+                                                                [neo4j/95fdc8b4]  - existing transaction log versions 0-0
+                                                                [neo4j/95fdc8b4]  - oldest transaction 2 found in log with version 0
+                                                                [neo4j/95fdc8b4] Checkpoint log files:
+                                                                [neo4j/95fdc8b4]  - existing checkpoint log versions 0-0
+                                                                [neo4j/95fdc8b4]  - last checkpoint: CheckpointInfo{transactionLogPosition=LogPosition{logVersion=0, byteOffset=112}, checkpointEntryPosition=LogPosition{logVersion=0, byteOffset=256}, storeId=StoreId{creationTime=1678021817758, randomId=-8448200228428882389, storeVersion=3471768636287762695, upgradeTime=1678021817758, upgradeTxId=1}}
+                                                                [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                                   [ Id usage ]                                  
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] ArrayPropertyStore[neostore.nodestore.db.labels]: used=1 high=0
+                                                                [neo4j/95fdc8b4] NodeStore[neostore.nodestore.db]: used=325962 high=325961
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.propertystore.db.index.keys]: used=25 high=24
+                                                                [neo4j/95fdc8b4] PropertyIndexStore[neostore.propertystore.db.index]: used=15 high=14
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.propertystore.db.strings]: used=111169 high=111168
+                                                                [neo4j/95fdc8b4] ArrayPropertyStore[neostore.propertystore.db.arrays]: used=1 high=0
+                                                                [neo4j/95fdc8b4] PropertyStore[neostore.propertystore.db]: used=643576 high=643575
+                                                                [neo4j/95fdc8b4] RelationshipStore[neostore.relationshipstore.db]: used=343440 high=343439
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.relationshiptypestore.db.names]: used=10 high=9
+                                                                [neo4j/95fdc8b4] RelationshipTypeStore[neostore.relationshiptypestore.db]: used=9 high=8
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.labeltokenstore.db.names]: used=3 high=2
+                                                                [neo4j/95fdc8b4] LabelTokenStore[neostore.labeltokenstore.db]: used=2 high=1
+                                                                [neo4j/95fdc8b4] SchemaStore[neostore.schemastore.db]: used=3 high=2
+                                                                [neo4j/95fdc8b4] RelationshipGroupStore[neostore.relationshipgroupstore.db]: used=629 high=628
+                                                                [neo4j/95fdc8b4] NeoStore[neostore]: used=-1 high=-1
+                                                                [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                               [ Neostore records ]                              
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] TIME (Creation time): 1678021817758
+                                                                [neo4j/95fdc8b4] RANDOM_NUMBER (Random number for store id): -8448200228428882389
+                                                                [neo4j/95fdc8b4] LOG_VERSION (Current log version): 0
+                                                                [neo4j/95fdc8b4] LAST_TRANSACTION_ID (Last committed transaction): 1
+                                                                [neo4j/95fdc8b4] STORE_VERSION (Store format version): 3471768636287762695 (AF4.3.0)
+                                                                [neo4j/95fdc8b4] FIRST_GRAPH_PROPERTY (First property record containing graph properties): -1
+                                                                [neo4j/95fdc8b4] LAST_CONSTRAINT_TRANSACTION (Last committed transaction containing constraint changes): 0
+                                                                [neo4j/95fdc8b4] UPGRADE_TRANSACTION_ID (Transaction id most recent upgrade was performed at): 1
+                                                                [neo4j/95fdc8b4] UPGRADE_TIME (Time of last upgrade): 1678021817758
+                                                                [neo4j/95fdc8b4] LAST_TRANSACTION_CHECKSUM (Checksum of last committed transaction): 1345586820
+                                                                [neo4j/95fdc8b4] UPGRADE_TRANSACTION_CHECKSUM (Checksum of transaction id the most recent upgrade was performed at): -559063315
+                                                                [neo4j/95fdc8b4] LAST_CLOSED_TRANSACTION_LOG_VERSION (Log version where the last transaction commit entry has been written into): 0
+                                                                [neo4j/95fdc8b4] LAST_CLOSED_TRANSACTION_LOG_BYTE_OFFSET (Byte offset in the log file where the last transaction commit entry has been written into): 112
+                                                                [neo4j/95fdc8b4] LAST_TRANSACTION_COMMIT_TIMESTAMP (Commit time timestamp for last committed transaction): 0
+                                                                [neo4j/95fdc8b4] UPGRADE_TRANSACTION_COMMIT_TIMESTAMP (Commit timestamp of transaction the most recent upgrade was performed at): 0
+                                                                [neo4j/95fdc8b4] LAST_MISSING_STORE_FILES_RECOVERY_TIMESTAMP (Timestamp of last attempt to perform a recovery on the store with missing files.): 1678021827915
+                                                                [neo4j/95fdc8b4] EXTERNAL_STORE_UUID_MOST_SIGN_BITS (Database identifier exposed as external store identity. Generated on creation and never updated. Most significant bits.): 6611031962266521376
+                                                                [neo4j/95fdc8b4] EXTERNAL_STORE_UUID_LEAST_SIGN_BITS (Database identifier exposed as external store identity. Generated on creation and never updated. Least significant bits): -9059756353054461749
+                                                                [neo4j/95fdc8b4] CHECKPOINT_LOG_VERSION (Current checkpoint log version): 0
+                                                                [neo4j/95fdc8b4] KERNEL_VERSION (The kernel version (also transaction log version) that is currently being used when writing new transactions): 4
+                                                                [neo4j/95fdc8b4] DATABASE_ID_MOST_SIGN_BITS (The last used DatabaseId for this database. Most significant bits): -9223372036854775808
+                                                                [neo4j/95fdc8b4] DATABASE_ID_LEAST_SIGN_BITS (The last used DatabaseId for this database. Least significant bits): -9223372036854775808
+                                                                [neo4j/95fdc8b4] 
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4]                                [ Store versions ]                               
+                                                                [neo4j/95fdc8b4] --------------------------------------------------------------------------------
+                                                                [neo4j/95fdc8b4] ArrayPropertyStore[neostore.nodestore.db.labels] AF4.3.0
+                                                                [neo4j/95fdc8b4] NodeStore[neostore.nodestore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.propertystore.db.index.keys] AF4.3.0
+                                                                [neo4j/95fdc8b4] PropertyIndexStore[neostore.propertystore.db.index] AF4.3.0
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.propertystore.db.strings] AF4.3.0
+                                                                [neo4j/95fdc8b4] ArrayPropertyStore[neostore.propertystore.db.arrays] AF4.3.0
+                                                                [neo4j/95fdc8b4] PropertyStore[neostore.propertystore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] RelationshipStore[neostore.relationshipstore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.relationshiptypestore.db.names] AF4.3.0
+                                                                [neo4j/95fdc8b4] RelationshipTypeStore[neostore.relationshiptypestore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] StringPropertyStore[neostore.labeltokenstore.db.names] AF4.3.0
+                                                                [neo4j/95fdc8b4] LabelTokenStore[neostore.labeltokenstore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] SchemaStore[neostore.schemastore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] RelationshipGroupStore[neostore.relationshipgroupstore.db] AF4.3.0
+                                                                [neo4j/95fdc8b4] NeoStore[neostore] AF4.3.0
+                                                                [neo4j/95fdc8b4] 
+2023-03-06 06:19:06.255+0000 INFO  [o.n.k.i.a.i.IndexingService] [neo4j/95fdc8b4] IndexingService.init: indexes not specifically mentioned above are ONLINE
+2023-03-06 06:19:06.278+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] Requirement `Database unavailable` makes database neo4j unavailable.
+2023-03-06 06:19:06.279+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] DatabaseId{95fdc8b4[neo4j]} is unavailable.
+2023-03-06 06:19:06.345+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] Starting transaction log [/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/transactions/neo4j/neostore.transaction.db.0] at version=0
+2023-03-06 06:19:06.346+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] Starting transaction log [/Users/zhengyan/Desktop/my_paper/english-word-platform/backend/neo4j-v4/data/transactions/neo4j/checkpoint.0] at version=0
+2023-03-06 06:19:06.346+0000 INFO  [o.n.k.i.a.i.IndexingService] [neo4j/95fdc8b4] IndexingService.start: indexes not specifically mentioned above are ONLINE
+2023-03-06 06:19:06.347+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] Fulfilling of requirement 'Database unavailable' makes database neo4j available.
+2023-03-06 06:19:06.347+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] DatabaseId{95fdc8b4[neo4j]} is ready.
+2023-03-06 06:19:06.347+0000 INFO  [o.n.m.DatabaseHealth] [neo4j/95fdc8b4] Database health set to OK
+2023-03-06 06:19:06.425+0000 INFO  [o.n.b.BoltServer] Bolt enabled on localhost:7687.
+2023-03-06 06:19:06.425+0000 INFO  [o.n.s.AbstractNeoWebServer$ServerComponentsLifecycleAdapter] Starting web server
+2023-03-06 06:19:07.451+0000 INFO  [o.n.s.CommunityNeoWebServer] Remote interface available at http://localhost:7474/
+2023-03-06 06:19:07.451+0000 INFO  [o.n.s.AbstractNeoWebServer$ServerComponentsLifecycleAdapter] Web server started.
+2023-03-06 06:19:07.455+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-06 06:19:07.456+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] name: system
+2023-03-06 06:19:07.456+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] creationDate: 2023-03-05T13:11:51.738Z
+2023-03-06 06:19:09.068+0000 ERROR [o.n.b.t.p.ProtocolHandshaker] Fatal error occurred during protocol handshaking: [id: 0xe2524879, L:/127.0.0.1:7687 - R:/127.0.0.1:52815]
+java.lang.NullPointerException: null
+	at io.netty.buffer.Unpooled.copiedBuffer(Unpooled.java:363) ~[netty-buffer-4.1.86.Final.jar:4.1.86.Final]
+	at org.neo4j.bolt.transport.DiscoveryResponseHandler.channelRead(DiscoveryResponseHandler.java:60) ~[neo4j-bolt-4.4.18.jar:4.4.18]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.handlerRemoved(ByteToMessageDecoder.java:266) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:536) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) [netty-codec-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at org.neo4j.bolt.transport.pipeline.AuthenticationTimeoutHandler.channelRead(AuthenticationTimeoutHandler.java:58) [neo4j-bolt-4.4.18.jar:4.4.18]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) [netty-transport-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) [netty-common-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.86.Final.jar:4.1.86.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.86.Final.jar:4.1.86.Final]
+	at java.lang.Thread.run(Thread.java:829) [?:?]

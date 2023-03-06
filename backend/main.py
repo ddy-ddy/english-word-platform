@@ -8,11 +8,10 @@ from py2neo import Graph
 import json
 
 graph = Graph("bolt://localhost:7687", auth=("neo4j", "aAabcdefg123"))
-query = "MATCH (Lemma)-[]->(Synset) WHERE Lemma.name = 'implicit' RETURN *"
-result = graph.run(query)
-json_result = json.dumps(result.data(), ensure_ascii=False)
 
-with open('result.json', 'w') as f:
-    f.write(json_result)
+# 构建Cypher查询语句
+query = "MATCH p=(Lemma{name:'implicit'})-[InSynset]->(Synset) RETURN p"
 
-print(json_result)
+# 执行查询
+json_data = graph.run(query, node_id=1).data()
+print(json_data)
