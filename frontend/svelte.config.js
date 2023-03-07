@@ -1,3 +1,10 @@
+/*
+ * @Author: ddy 58058861+ddy-ddy@users.noreply.github.com
+ * @Date: 2023-03-06 14:58:28
+ * @LastEditTime: 2023-03-07 21:20:01
+ * @Github: https://github.com/ddy-ddy
+ * @Website: https://ddy-ddy.com
+ */
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
