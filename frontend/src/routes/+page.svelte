@@ -9,11 +9,13 @@
       container,
       width: 800,
       height: 500,
+      fitView: true,
+      fitViewPadding: [20, 40, 50, 20],
     });
     graph.data(data); // 读取数据源到图上
     graph.render(); // 渲染图
   });
 </script>
 
-<div class=" font-thin bg-red-50 text-center">ddy‘s test demo</div>
+<div class=" font-thin bg-red-50 text-center">test demo</div>
 <div id="graph-container" class=" container mx-auto bg-blue-100 px-4 py-4" />
