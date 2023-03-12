@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.grid-bg {
+  background-image: linear-gradient(to right, #cccccc 0.5px, transparent 0.5px),
+    linear-gradient(to bottom, #cccccc 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+}
+.full-screen{
+    width: 100vw;
+    height: 100vw;
+}

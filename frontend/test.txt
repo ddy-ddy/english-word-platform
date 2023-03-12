@@ -1,0 +1,139 @@
+<script>
+  import G6 from "@antv/g6";
+  import { onMount } from "svelte";
+
+  export let data;
+  onMount(() => {
+    const container = document.getElementById("graph-container");
+    // 实例化 grid 插件
+    const graph = new G6.Graph({
+      container,
+      width: 2400,
+      height: 1200,
+      defaultNode: {
+        type: "image", // 在数据中已经指定 type，这里无需再次指定
+        img: "img/logo.svg",
+        size: 40,
+        labelCfg: {
+          position: "bottom",
+        },
+        clipCfg: {
+          show: true,
+          type: "circle",
+        },
+      },
+      defaultEdge: {
+        type: "quadratic",
+        style: {
+          stroke: "#088",
+          endArrow: true,
+          lineWidth: 3,
+        },
+        labelCfg: {
+          position: "top",
+        },
+      },
+      // 布局
+      layout: {
+        type: "force",
+        linkDistance: 100,
+        preventOverlap: true,
+        nodeStrength: -30,
+        edgeStrength: 0.1,
+      },
+      // 内置交互
+      modes: {
+        default: ["drag-canvas", "zoom-canvas", "drag-node"],
+      },
+      animate: true, // Boolean，可选，全局变化时否使用动画过渡
+    });
+    graph.data(data); // 读取数据源到图上
+    graph.render(); // 渲染图
+
+    // 监听鼠标进入节点
+    graph.on("node:mouseenter", (e) => {
+      const nodeItem = e.item;
+      // 设置目标节点的 hover 状态 为 true
+      graph.setItemState(nodeItem, "hover", true);
+    });
+    // 监听鼠标离开节点
+    graph.on("node:mouseleave", (e) => {
+      const nodeItem = e.item;
+      // 设置目标节点的 hover 状态 false
+      graph.setItemState(nodeItem, "hover", false);
+    });
+    // 监听鼠标点击节点
+    graph.on("node:click", (e) => {
+      // 先将所有当前有 click 状态的节点的 click 状态置为 false
+      const clickNodes = graph.findAllByState("node", "click");
+      clickNodes.forEach((cn) => {
+        graph.setItemState(cn, "click", false);
+      });
+      const nodeItem = e.item;
+      // 设置目标节点的 click 状态 为 true
+      graph.setItemState(nodeItem, "click", true);
+    });
+    // 监听鼠标点击节点
+    graph.on("edge:click", (e) => {
+      // 先将所有当前有 click 状态的边的 click 状态置为 false
+      const clickEdges = graph.findAllByState("edge", "click");
+      clickEdges.forEach((ce) => {
+        graph.setItemState(ce, "click", false);
+      });
+      const edgeItem = e.item;
+      // 设置目标边的 click 状态 为 true
+      graph.setItemState(edgeItem, "click", true);
+    });
+  });
+</script>
+
+<div class="grid-bg full-screen">
+  <!-- navbar -->
+  <div class="mx-4">
+    <div class="navbar bg-base-100 top-4 shadow-xl shadow-blue-200 rounded-md">
+      <!-- 最左边 -->
+      <div class="navbar-start">
+        <a class="btn btn-ghost normal-case text-xl">English KG</a>
+      </div>
+      <!-- 中间搜索 -->
+      <div class="navbar-center">
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              type="text"
+              placeholder="输入你要查询的单词..."
+              class="input input-bordered bg-base-200"
+            />
+            <button class="btn btn-square">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                /></svg
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 最右边 -->
+      <div class="navbar-end">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>网站介绍</a></li>
+          <li><a>关于我</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- graph-container -->
+  <div class="bg-base-50 full-screen">
+    <div id="graph-container" />
+  </div>
+</div>
