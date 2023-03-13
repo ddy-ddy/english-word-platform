@@ -326,6 +326,7 @@
     G6.registerEdge(
       "flow-cubic",
       {
+        draw(cfg, group) {},
         getControlPoints(cfg) {
           let controlPoints = cfg.controlPoints; // 指定controlPoints
           if (!controlPoints || !controlPoints.length) {
@@ -374,7 +375,7 @@
     const width = container.scrollWidth;
     const height = container.scrollHeight || 1500;
     const toolbar = new G6.ToolBar({
-      position: { x: 850, y: 80 },
+      position: { x: 20, y: 80 },
     });
     // 默认配置
     const defaultConfig = {
@@ -544,8 +545,12 @@
 
 <style>
   .grid-for-background {
-    background-image: linear-gradient(to right, #cccccc 0.6px, transparent 0.6px),
+    background-image: linear-gradient(
+        to right,
+        #cccccc 0.6px,
+        transparent 0.6px
+      ),
       linear-gradient(to bottom, #cccccc 0.6px, transparent 0.6px);
-    background-size: 40px 50px;
+    background-size: 50px 50px;
   }
 </style>
