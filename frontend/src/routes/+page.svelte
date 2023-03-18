@@ -1,7 +1,6 @@
 <script>
   import G6 from "@antv/g6";
   import { onMount } from "svelte";
-
   export let data;
   const colors = {
     B: "#5B8FF9",
@@ -17,44 +16,35 @@
     config: {
       padding: [20, 50],
       defaultLevel: 3,
-      defaultZoom: 0.8,
+      defaultZoom: 0.5,
       modes: { default: ["zoom-canvas", "drag-canvas"] },
     },
   };
   // 自定义节点、边
   const registerFn = () => {
-    /**
-     * 自定义节点
-     */
     G6.registerNode(
-      "flow-rect",
+      "flow-rect", // node name
       {
         shapeType: "flow-rect",
+        /**
+         * 绘制节点，包含文本
+         * @param  {Object} cfg 节点的配置项
+         * @param  {G.Group} group 图形分组，节点中的图形对象的容器
+         * @return {G.Shape} 绘制的图形，通过 node.get('keyShape') 可以获取到
+         */
         draw(cfg, group) {
-          const {
-            name = "",
-            variableName,
-            variableValue,
-            variableUp,
-            label,
-            collapsed,
-            currency,
-            status,
-            rate,
-          } = cfg;
+          const { nodeType, name, label, collapsed, status } = cfg;
 
-          const grey = "#CED4D9";
           const rectConfig = {
-            width: 202,
+            width: 150,
             height: 60,
             lineWidth: 1,
             fontSize: 12,
-            fill: "#fff",
+            fill: "#fff", // 背景颜色
             radius: 4,
-            stroke: grey,
-            opacity: 1,
+            stroke: "#CED4D9", // 边框颜色
+            opacity: 1, // 透明度
           };
-
           const nodeOrigin = {
             x: -rectConfig.width / 2,
             y: -rectConfig.height / 2,
@@ -75,114 +65,61 @@
 
           const rectBBox = rect.getBBox();
 
-          // label title
-          group.addShape("text", {
-            attrs: {
-              ...textConfig,
-              x: 12 + nodeOrigin.x,
-              y: 20 + nodeOrigin.y,
-              text: name.length > 28 ? name.substr(0, 28) + "..." : name,
-              fontSize: 12,
-              opacity: 0.85,
-              fill: "#000",
-              cursor: "pointer",
-            },
-            // must be assigned in G6 3.3 and later versions. it can be any string you want, but should be unique in a custom item type
-            name: "name-shape",
-          });
+          if (nodeType === "query") {
+            group.addShape("text", {
+              attrs: {
+                ...textConfig,
+                x: nodeOrigin.x / 2 + 4,
+                y: nodeOrigin.y + 36,
+                text: name,
+                fontSize: 18,
+                fill: "#000",
+                opacity: 0.85,
+              },
+            });
+          } else {
+            // 单词名称
+            group.addShape("text", {
+              attrs: {
+                ...textConfig,
+                x: 12 + nodeOrigin.x,
+                y: 24 + nodeOrigin.y,
+                text: name,
+                fontSize: 18,
+                fill: "#000",
+                opacity: 0.85,
+              },
+            });
+            // 单词词性+释义
+            group.addShape("text", {
+              attrs: {
+                ...textConfig,
+                x: 12 + nodeOrigin.x,
+                y: 50 + nodeOrigin.y,
+                text: label.length > 20 ? label.substr(0, 20) + "..." : label,
+                fontSize: 12,
+                opacity: 0.85,
+                fill: "#000",
+                cursor: "pointer",
+              },
+              name: "name-shape",
+            });
+          }
 
-          // price
-          const price = group.addShape("text", {
-            attrs: {
-              ...textConfig,
-              x: 12 + nodeOrigin.x,
-              y: rectBBox.maxY - 12,
-              text: label,
-              fontSize: 16,
-              fill: "#000",
-              opacity: 0.85,
-            },
-          });
-
-          // label currency
-          group.addShape("text", {
-            attrs: {
-              ...textConfig,
-              x: price.getBBox().maxX + 5,
-              y: rectBBox.maxY - 12,
-              text: currency,
-              fontSize: 12,
-              fill: "#000",
-              opacity: 0.75,
-            },
-          });
-
-          // percentage
-          const percentText = group.addShape("text", {
-            attrs: {
-              ...textConfig,
-              x: rectBBox.maxX - 8,
-              y: rectBBox.maxY - 12,
-              text: `${((variableValue || 0) * 100).toFixed(2)}%`,
-              fontSize: 12,
-              textAlign: "right",
-              fill: colors[status],
-            },
-          });
-
-          // percentage triangle
-          const symbol = variableUp ? "triangle" : "triangle-down";
-          const triangle = group.addShape("marker", {
-            attrs: {
-              ...textConfig,
-              x: percentText.getBBox().minX - 10,
-              y: rectBBox.maxY - 12 - 6,
-              symbol,
-              r: 6,
-              fill: colors[status],
-            },
-          });
-
-          // variable name
-          group.addShape("text", {
-            attrs: {
-              ...textConfig,
-              x: triangle.getBBox().minX - 4,
-              y: rectBBox.maxY - 12,
-              text: variableName,
-              fontSize: 12,
-              textAlign: "right",
-              fill: "#000",
-              opacity: 0.45,
-            },
-          });
-
-          // bottom line background
-          const bottomBackRect = group.addShape("rect", {
+          // 底部颜色条
+          group.addShape("rect", {
             attrs: {
               x: nodeOrigin.x,
               y: rectBBox.maxY - 4,
-              width: rectConfig.width,
-              height: 4,
+              width: rectBBox.width - 1,
+              height: 5,
               radius: [0, 0, rectConfig.radius, rectConfig.radius],
-              fill: "#E0DFE3",
-            },
-          });
-
-          // bottom percent
-          const bottomRect = group.addShape("rect", {
-            attrs: {
-              x: nodeOrigin.x,
-              y: rectBBox.maxY - 4,
-              width: rate * rectBBox.width,
-              height: 4,
-              radius: [0, 0, 0, rectConfig.radius],
               fill: colors[status],
             },
           });
 
-          // collapse rect
           if (cfg.children && cfg.children.length) {
+            // 指针样式
             group.addShape("rect", {
               attrs: {
                 x: rectConfig.width / 2 - 8,
@@ -193,12 +130,11 @@
                 cursor: "pointer",
                 fill: "#fff",
               },
-              // must be assigned in G6 3.3 and later versions. it can be any string you want, but should be unique in a custom item type
               name: "collapse-back",
               modelId: cfg.id,
             });
 
-            // collpase text
+            // 指针文本
             group.addShape("text", {
               attrs: {
                 x: rectConfig.width / 2,
@@ -210,15 +146,14 @@
                 cursor: "pointer",
                 fill: "rgba(0, 0, 0, 0.25)",
               },
-              // must be assigned in G6 3.3 and later versions. it can be any string you want, but should be unique in a custom item type
               name: "collapse-text",
               modelId: cfg.id,
             });
           }
-
           this.drawLinkPoints(cfg, group);
           return rect;
         },
+        //更新节点后的操作
         update(cfg, item) {
           const { level, status, name } = cfg;
           const group = item.getContainer();
@@ -294,6 +229,7 @@
           }
           this.updateLinkPoints(cfg, group);
         },
+        // 设置节点状态
         setState(name, value, item) {
           if (name === "collapse") {
             const group = item.getContainer();
@@ -313,6 +249,7 @@
             }
           }
         },
+        //获取锚点(相关边的接入点)
         getAnchorPoints() {
           return [
             [0, 0.5],
@@ -322,7 +259,6 @@
       },
       "rect"
     );
-
     G6.registerEdge(
       "flow-cubic",
       {
@@ -374,6 +310,7 @@
     const container = document.getElementById("graph-container");
     const width = container.scrollWidth;
     const height = container.scrollHeight || 1500;
+    // 工具栏的位置
     const toolbar = new G6.ToolBar({
       position: { x: 20, y: 80 },
     });
@@ -384,8 +321,11 @@
       modes: {
         default: ["zoom-canvas", "drag-canvas"],
       },
-      fitView: true,
+      fitView: true, // 图自动适配画布大小
+      fitViewPadding: [-800, 300, 0, 300], // 图自动适配画布大小时的边距
       animate: true,
+      minZoom: 0.4, // 最小缩放比例
+      maxZoom: 2, // 最大缩放比例
       defaultNode: {
         type: "flow-rect",
       },
@@ -398,10 +338,10 @@
       layout: {
         type: "indented",
         direction: "LR",
-        dropCap: false,
-        indent: 300,
+        dropCap: false, // 每个节点的第一个自节点是否位于下一行
+        indent: 300, //同一层节点之间的宽间距
         getHeight: () => {
-          return 60;
+          return 60; //每个节点的高度
         },
       },
     };
@@ -428,14 +368,14 @@
         getContent: (e) => {
           const outDiv = document.createElement("div");
           //outDiv.style.padding = '0px 0px 20px 0px';
-          const nodeName = e.item.getModel().name;
-          let formatedNodeName = "";
-          for (let i = 0; i < nodeName.length; i++) {
-            formatedNodeName = `${formatedNodeName}${nodeName[i]}`;
-            if (i !== 0 && i % 20 === 0)
-              formatedNodeName = `${formatedNodeName}<br/>`;
+          const nodeInfo = e.item.getModel().label;
+          let formatedNodeInfo = "";
+          for (let i = 0; i < nodeInfo.length; i++) {
+            formatedNodeInfo = `${formatedNodeInfo}${nodeInfo[i]}`;
+            if (i !== 0 && i % 30 === 0)
+              formatedNodeInfo = `${formatedNodeInfo}<br/>`;
           }
-          outDiv.innerHTML = `${formatedNodeName}`;
+          outDiv.innerHTML = `${formatedNodeInfo}`;
           return outDiv;
         },
         shouldBegin: (e) => {
