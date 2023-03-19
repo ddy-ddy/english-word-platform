@@ -1,7 +1,7 @@
 /*
  * @Author: ddy 58058861+ddy-ddy@users.noreply.github.com
  * @Date: 2023-03-07 22:23:47
- * @LastEditTime: 2023-03-18 22:41:13
+ * @LastEditTime: 2023-03-18 23:33:51
  * @Github: https://github.com/ddy-ddy
  * @Website: https://ddy-ddy.com
  */
@@ -14,6 +14,7 @@ const data = {
     name: 'implicit',
     label: '',
     status: 'B',
+    relation: null,
     children: [
         {
             id: 'g12',
@@ -21,6 +22,7 @@ const data = {
             name: 'implicit',
             label: '(adj) suggested without being directly expressed',
             status: 'R',
+            relation: "Has_Lemma",
             children: [
                 {
                     id: 'g121',
@@ -29,6 +31,7 @@ const data = {
                     collapsed: true,
                     label: '138.00',
                     status: 'G',
+                    relation: "Has_Lemma",
                     children: [
                         {
                             id: 'g1211',
@@ -36,6 +39,7 @@ const data = {
                             name: 'Name4',
                             label: '138.00',
                             status: 'G',
+                            relation: "Has_Lemma",
                             children: [],
                         },
                     ],
@@ -47,6 +51,7 @@ const data = {
                     collapsed: true,
                     label: '100.00',
                     status: 'G',
+                    relation: "Has_Lemma",
                     children: [
                         {
                             id: 'g1221',
@@ -54,6 +59,7 @@ const data = {
                             name: 'Name6',
                             label: '40.00',
                             status: 'G',
+                            relation: "Has_Lemma",
                             children: [
                                 {
                                     id: 'g12211',
@@ -61,6 +67,7 @@ const data = {
                                     name: 'Name6-1',
                                     label: '40.00',
                                     status: 'G',
+                                    relation: "Has_Lemma",
                                     children: [],
                                 },
                             ],
@@ -71,6 +78,7 @@ const data = {
                             name: 'Name7',
                             label: '60.00',
                             status: 'G',
+                            relation: "Has_Lemma",
                             children: [],
                         },
                     ],
@@ -82,6 +90,7 @@ const data = {
                     collapsed: true,
                     label: '100.00',
                     status: 'G',
+                    relation: "Has_Lemma",
                     children: [
                         {
                             id: 'g1231',
@@ -89,6 +98,7 @@ const data = {
                             name: 'Name8-1',
                             label: '100.00',
                             status: 'G',
+                            relation: "Has_Lemma",
                             children: [],
                         },
                     ],
@@ -101,12 +111,14 @@ const data = {
             name: 'implicit',
             label: '(adj)complete and not doubted',
             status: 'R',
+            relation: "Has_Lemma",
             children: [
                 {
                     id: 'g131',
                     name: 'Name10',
                     label: '33.90',
                     status: 'G',
+                    relation: "Has_Lemma",
                     children: [],
                 },
                 {
@@ -114,6 +126,7 @@ const data = {
                     name: 'Name11',
                     label: '67.00',
                     status: 'G',
+                    relation: "Has_Lemma",
                     children: [],
                 },
             ],
@@ -130,3 +143,9 @@ export async function load({ params }) {
     // throw error(404, 'Not found');
     return data;
 }
+
+
+
+
+
+

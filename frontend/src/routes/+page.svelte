@@ -26,13 +26,14 @@
       "flow-rect", // node name
       {
         shapeType: "flow-rect",
-        /**
-         * 绘制节点，包含文本
-         * @param  {Object} cfg 节点的配置项
-         * @param  {G.Group} group 图形分组，节点中的图形对象的容器
-         * @return {G.Shape} 绘制的图形，通过 node.get('keyShape') 可以获取到
-         */
+
         draw(cfg, group) {
+          /**
+           * 绘制节点，包含文本
+           * @param  {Object} cfg 节点的配置项
+           * @param  {G.Group} group 图形分组，节点中的图形对象的容器
+           * @return {G.Shape} 绘制的图形，通过 node.get('keyShape') 可以获取到
+           */
           const { nodeType, name, label, collapsed, status } = cfg;
 
           const rectConfig = {
@@ -333,7 +334,16 @@
         type: "cubic-horizontal",
         style: {
           stroke: "#CED4D9",
+          lineWidth: 2,
         },
+        labelCfg: {
+          style: {
+            fill: "#000",
+            fontSize: 12,
+            fontWeight: "bold",
+          },
+        },
+        label: "relation",
       },
       layout: {
         type: "indented",
@@ -356,6 +366,7 @@
         return;
       }
       const { onInit, config } = props;
+      // 提示栏
       const tooltip = new G6.Tooltip({
         // offsetX and offsetY include the padding of the parent container
         offsetX: 20,
