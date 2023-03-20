@@ -398,14 +398,25 @@
           return false;
         },
       });
+
       graph = new G6.TreeGraph({
         container,
         ...defaultConfig,
         ...config,
         plugins: [tooltip, toolbar],
         linkCenter: true,
-        // 设置为true，启用 redo & undo 栈功能
         enabledStack: true,
+      });
+
+      graph.edge(function (edge) {
+        const node1 = graph
+          .getNodes()
+          .filter((n) => n.getID() === edge["target"]);
+        const model = node1[0].getModel();
+        const relation = model["relation"];
+        return {
+          label: relation,
+        };
       });
 
       if (typeof onInit === "function") {
