@@ -55,3 +55,41 @@
 2023-03-08 03:51:30.859+0000 INFO  Neo4j Server shutdown initiated by request
 2023-03-08 03:51:30.874+0000 INFO  Stopping...
 2023-03-08 03:51:36.158+0000 INFO  Stopped.
+2023-03-21 02:38:41.112+0000 INFO  Starting...
+2023-03-21 02:38:41.717+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-21 02:38:43.107+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-21 02:38:45.772+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-21 02:38:45.772+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-21 02:38:46.925+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-21 02:38:47.860+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-21 02:38:47.863+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-21 02:38:47.863+0000 INFO  name: system
+2023-03-21 02:38:47.863+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-21 02:38:47.864+0000 INFO  Started.
+2023-03-21 09:18:25.572+0000 INFO  Neo4j Server shutdown initiated by request
+2023-03-21 09:18:25.631+0000 INFO  Stopping...
+2023-03-21 09:18:33.567+0000 INFO  Stopped.
+2023-03-21 09:18:53.937+0000 INFO  Starting...
+2023-03-21 09:18:55.284+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-21 09:18:56.962+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-21 09:18:59.162+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-21 09:18:59.163+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-21 09:19:00.107+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-21 09:19:01.130+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-21 09:19:01.134+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-21 09:19:01.134+0000 INFO  name: system
+2023-03-21 09:19:01.134+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-21 09:19:01.135+0000 INFO  Started.
+2023-03-21 10:29:22.649+0000 INFO  Neo4j Server shutdown initiated by request
+2023-03-21 10:29:22.653+0000 INFO  Stopping...
+2023-03-21 13:13:24.487+0000 INFO  Starting...
+2023-03-21 13:13:25.709+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-21 13:13:27.913+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-21 13:13:30.348+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-21 13:13:30.348+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-21 13:13:31.219+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-21 13:13:32.484+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-21 13:13:32.490+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-21 13:13:32.491+0000 INFO  name: system
+2023-03-21 13:13:32.491+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-21 13:13:32.491+0000 INFO  Started.
