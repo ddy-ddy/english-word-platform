@@ -1,14 +1,13 @@
 /*
  * @Author: ddy 58058861+ddy-ddy@users.noreply.github.com
  * @Date: 2023-03-07 22:23:47
- * @LastEditTime: 2023-03-18 23:33:51
+ * @LastEditTime: 2023-03-21 17:05:48
  * @Github: https://github.com/ddy-ddy
  * @Website: https://ddy-ddy.com
  */
 import { error } from '@sveltejs/kit';
 
-// mocked data
-const data = {
+const info = {
     id: 'g1',
     nodeType: 'query',
     name: 'implicit',
@@ -133,6 +132,24 @@ const data = {
         },
     ],
 };
+const nodeLegend = [
+    ["查询词", "text-blue-400"],
+    ["释义词", "text-red-400"],
+    ["关联词", "text-green-400"],
+];
+const relationLegend = [
+    ["Lemmas", "释义", "text-red-400"],
+    ["Antonym", "反义", "text-green-400"],
+    ["Attribute", "属性", "text-green-400"],
+    ["Cause", "造成", "text-green-400"],
+];
+const colors = {
+    B: "#5B8FF9",
+    R: "#F46649",
+    Y: "#EEBC20",
+    G: "#5BD8A6",
+    DI: "#A7A7A7",
+};
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
     // const response = await fetch('https://gw.alipayobjects.com/os/basement_prod/6cae02ab-4c29-44b2-b1fd-4005688febcb.json');
@@ -141,9 +158,8 @@ export async function load({ params }) {
     //     return data;
     // }
     // throw error(404, 'Not found');
-    return data;
+    return { info: info, nodeLegend: nodeLegend, relationLegend: relationLegend, colors: colors };
 }
-
 
 
 
