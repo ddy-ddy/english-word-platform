@@ -2,6 +2,19 @@
   import G6 from "@antv/g6";
   import { onMount } from "svelte";
   export let data;
+  let showLegend = false;
+  const nodeLegend = [
+    ["查询词", "text-blue-400"],
+    ["释义词", "text-red-400"],
+    ["关联词", "text-green-400"],
+  ];
+  const relationLegend = [
+    ["Lemmas", "释义", "text-red-400"],
+    ["Antonym", "反义", "text-green-400"],
+    ["Attribute", "属性", "text-green-400"],
+    ["Cause", "造成", "text-green-400"],
+  ];
+
   const colors = {
     B: "#5B8FF9",
     R: "#F46649",
@@ -311,10 +324,41 @@
     const container = document.getElementById("graph-container");
     const width = container.scrollWidth;
     const height = container.scrollHeight || 1500;
-    // 工具栏的位置
     const toolbar = new G6.ToolBar({
-      position: { x: 20, y: 80 },
+      position: { x: 50, y: 80 },
+      getContent: () => {
+        const outDiv = document.createElement("div");
+        outDiv.style.width = "200px";
+        outDiv.style.padding = "5px";
+        outDiv.style.fontSize = "13px";
+        // outDiv.style.backgroundColor = "rgb(241 245 249)";
+        outDiv.style.fontWeight = "500";
+        outDiv.innerHTML = `
+        <ul class="grid grid-cols-4 justify-items-center items-center">
+          <li code="zoomOut" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">放大</li>
+          <li code="zoomIn" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">缩小</li>
+          <li code="realZoom" class="rounded-lg pt-0.5  border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">复位</li>
+          <li code="show" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">图例</li>
+        </ul>`;
+        return outDiv;
+      },
+      handleClick: (code, graph) => {
+        if (code === "zoomIn") {
+          toolbar.zoomIn();
+        } else if (code === "zoomOut") {
+          toolbar.zoomOut();
+        } else if (code === "realZoom") {
+          toolbar.realZoom();
+        } else if (code === "show") {
+          if (showLegend === true) {
+            showLegend = false;
+          } else {
+            showLegend = true;
+          }
+        }
+      },
     });
+
     // 默认配置
     const defaultConfig = {
       width,
@@ -337,10 +381,11 @@
           lineWidth: 2,
         },
         labelCfg: {
+          refY: 10,
+          autoRotate: true,
           style: {
-            fill: "#000",
             fontSize: 12,
-            fontWeight: "bold",
+            fontWeight: "thin",
           },
         },
         label: "relation",
@@ -498,6 +543,39 @@
       </div>
     </div>
   </div>
+  {#if showLegend}
+    <div
+      id="showLegend"
+      class="transition slide-in fixed top-36 left-10 card w-56 bg-slate-100 shadow-xl"
+    >
+      <div class="card-body p-6">
+        <div class="table w-full top-2">
+          <div class="table-row-group">
+            {#each nodeLegend as info}
+              <div class="table-row">
+                <div class="table-cell text-center">
+                  <span class=" {info[1]} font-black ">—————— </span>
+                </div>
+                <div class="table-cell text-left font-normal tracking-wide">
+                  {info[0]}
+                </div>
+              </div>
+            {/each}
+            {#each relationLegend as info}
+              <div class="table-row">
+                <div class="table-cell text-center font-mono font-normal ">
+                  {info[0]}
+                </div>
+                <div class="table-cell text-left font-normal tracking-wide">
+                  {info[1]}
+                </div>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
+    </div>
+  {/if}
 
   <!-- graph-container -->
   <div class="bg-base-50 full-screen">
@@ -506,6 +584,7 @@
 </div>
 
 <style>
+  /* 网格化背景 */
   .grid-for-background {
     background-image: linear-gradient(
         to right,
@@ -514,5 +593,43 @@
       ),
       linear-gradient(to bottom, #cccccc 0.6px, transparent 0.6px);
     background-size: 50px 50px;
+  }
+
+  .transition {
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slide-out {
+    from {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  .slide-in {
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+  }
+  .slide-out {
+    animation-name: slide-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
   }
 </style>
