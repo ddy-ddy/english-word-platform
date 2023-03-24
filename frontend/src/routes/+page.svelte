@@ -75,11 +75,16 @@
                   ...textConfig,
                   x: 12 + nodeOrigin.x,
                   y: 24 + nodeOrigin.y,
-                  text: name,
+                  text:
+                    name.indexOf(",") !== -1
+                      ? name.split(",")[0]
+                      : name,
                   fontSize: 18,
                   fill: "#000",
+                  cursor: "pointer",
                   opacity: 0.85,
                 },
+                name: "full-name-shape",
               });
               // 单词词性+释义
               group.addShape("text", {
@@ -343,16 +348,24 @@
         itemTypes: ["node"],
         // 自定义 tooltip 内容
         getContent: (e) => {
-          const outDiv = document.createElement("div");
+          // const outDiv = document.createElement("div");
           const nodeInfo = e.item.getModel().label;
-          let formatedNodeInfo = "";
-          for (let i = 0; i < nodeInfo.length; i++) {
-            formatedNodeInfo = `${formatedNodeInfo}${nodeInfo[i]}`;
-            if (i !== 0 && i % 30 === 0)
-              formatedNodeInfo = `${formatedNodeInfo}<br/>`;
-          }
-          outDiv.innerHTML = `${formatedNodeInfo}`;
-          return outDiv;
+          const nodeName = e.item.getModel().name;
+          const nodeExamples = eval(e.item.getModel().examples);
+          return `<div class="bg-base-100">
+                    <ul class="space-y-4">
+                      <li class="text-lg font-mono italic font-semibold underline decoration-sky-500 underline-offset-4 ">${nodeName}</li>
+                      <li class="text-xs font-mono font-light">${nodeInfo}</li>
+                      <ul class="list-disc list-inside">
+                        ${nodeExamples
+                        .map(
+                          (example) =>
+                            `<li class="text-xs font-mono font-light">${example}</li>`
+                        )
+                        .join("")}  
+                      </ul>
+                    </ul>
+                  </div>`;
         },
         shouldBegin: (e) => {
           if (
@@ -467,7 +480,7 @@
   {#if showLegend}
     <div
       id="showLegend"
-      class="transition slide-in fixed top-36 left-10 card w-56 bg-slate-100 shadow-xl"
+      class="transition slide-in fixed bottom-24 left-12 card w-56 bg-slate-100 shadow-xl"
     >
       <div class="card-body p-6">
         <div class="table w-full top-2">
