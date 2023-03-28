@@ -136,3 +136,27 @@
 2023-03-24 10:21:39.911+0000 INFO  Neo4j Server shutdown initiated by request
 2023-03-24 10:21:39.922+0000 INFO  Stopping...
 2023-03-24 10:21:45.130+0000 INFO  Stopped.
+2023-03-25 08:45:19.398+0000 INFO  Starting...
+2023-03-25 08:45:21.145+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-25 08:45:22.813+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-25 08:45:25.138+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-25 08:45:25.138+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-25 08:45:26.138+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-25 08:45:27.164+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-25 08:45:27.169+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-25 08:45:27.169+0000 INFO  name: system
+2023-03-25 08:45:27.169+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-25 08:45:27.169+0000 INFO  Started.
+2023-03-26 01:16:52.319+0000 INFO  Neo4j Server shutdown initiated by request
+2023-03-26 01:16:52.322+0000 INFO  Stopping...
+2023-03-27 07:46:38.843+0000 INFO  Starting...
+2023-03-27 07:46:39.790+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-03-27 07:46:41.367+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-03-27 07:46:43.902+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-03-27 07:46:43.903+0000 INFO  Updating the initial password in component 'security-users'
+2023-03-27 07:46:44.758+0000 INFO  Bolt enabled on localhost:7687.
+2023-03-27 07:46:45.710+0000 INFO  Remote interface available at http://localhost:7474/
+2023-03-27 07:46:45.714+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-03-27 07:46:45.714+0000 INFO  name: system
+2023-03-27 07:46:45.714+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-03-27 07:46:45.714+0000 INFO  Started.

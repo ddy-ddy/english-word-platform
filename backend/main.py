@@ -8,6 +8,19 @@ from py2neo import Graph
 import json
 
 graph = Graph("bolt://localhost:7687", auth=("neo4j", "aAabcdefg123"))
+# 构建Cypher查询语句
+input_query = "implicit"
+# 构建初始数据
+data, all_node_id = {"id": "0",
+                     "nodeType": "query",
+                     "name": input_query,
+                     "status": "R",
+                     "relation": "",
+                     "pos": "",
+                     "examples": "",
+                     "definition": "",
+                     "children": []
+                     }, []
 
 
 def get_query_data(query):
@@ -64,138 +77,120 @@ def construct_full_name_data(synset_id):
     return full_name
 
 
-# 构建Cypher查询语句
-input_query = "implicit"
+def is_repeat_node(temp_id):
+    if temp_id in all_node_id:
+        temp_id = str(temp_id) + str(len(all_node_id))
+        all_node_id.append(temp_id)
+    else:
+        all_node_id.append(temp_id)
+    return temp_id
 
-# 构建初始数据
-data, all_node_id = {"id": "0",
-                     "nodeType": "query",
-                     "name": input_query,
-                     "status": "R",
-                     "relation": "",
-                     "pos": "",
-                     "examples": "",
-                     "definition": "",
-                     "children": []
-                     }, []
 
-query = "MATCH p=(a:Lemma{name:'"+input_query+"'})-[b:InSynset]->(c:Synset) RETURN a,b,c"
+query = "MATCH p=(a:Lemma{name:'" + input_query + "'})-[b:InSynset]->(c:Synset) RETURN a,b,c"
 json_data = get_query_data(query)
 
 for item in json_data:
     synset, lemma = item["c"], item["a"]
 
-    # 获取一级节点(正向)
-    id, info = construct_data(synset=synset, lemma=lemma, status="R", relation="Has_Lemma")
+    # 获取一级节点名字(正向)
+    id, info = construct_data(synset=synset, lemma=lemma, status="R", relation="InSynset")
     all_node_id.append(id)
     Synset_name = info["name"]  # Synset的name是由该Synset的所有Lemma的name组成
 
-    # 获取一级节点(方向)
+    # 获取一级节点名字(反向)
     query = "MATCH p=(a:Lemma{name:'" + input_query + "'})-[b:InSynset]->(c:Synset{id:'" + id + "'})<-[d:InSynset]-(e:Lemma)  RETURN c,e"
     first_data = get_query_data(query)
     if first_data:
         for _ in first_data:
             temp_synset, temp_lemma = _["c"], _["e"]
-            temp_id, temp_info = construct_data(synset=temp_synset, lemma=temp_lemma, status="B", relation="Has_Lemma")
+            temp_id, temp_info = construct_data(synset=temp_synset, lemma=temp_lemma, status="B", relation="InSynset")
             all_node_id.append(temp_id)
             Synset_name = Synset_name + ", " + (temp_info["name"])
 
     info["name"] = Synset_name  # 更新Synset的name
 
     # 获取二级节点(正向指向)
-    query = "MATCH p=(Synset{id:'" + id + "'})-[r]->(b:Synset) RETURN r,b"
+    query = "MATCH p=(Synset{id:'" + id + "'})-[r*1]->(b:Synset) RETURN r,b"
     second_data = get_query_data(query)
     if second_data:
         for _ in second_data:
             relation, temp_synset = _["r"], _["b"]
             temp_id, temp_info = construct_data(synset=temp_synset, status="G",
-                                                relation=type(_["r"]).__name__)
+                                                relation=type(_["r"][0]).__name__)
             temp_info["name"] = construct_full_name_data(temp_id)
-            if temp_id in all_node_id:
-                continue
-            else:
-                all_node_id.append(temp_id)
 
-            # 获取三级节点(正向指向)
-            query = "MATCH p=(Synset{id:'" + temp_id + "'})-[r]->(b:Synset) RETURN r,b"
+            # 获取三级节点名字(正向指向)
+            query = "MATCH p=(Synset{id:'" + temp_id + "'})-[r*1]->(b:Synset) RETURN r,b"
             third_data, third_info = get_query_data(query), []
             if third_data:
                 for _ in third_data:
                     third_relation, third_synset = _["r"], _["b"]
                     third_id, third_temp_info = construct_data(synset=third_synset, status="G",
-                                                               relation=type(_["r"]).__name__)
-                    if third_id in all_node_id:
-                        continue
-                    else:
-                        all_node_id.append(third_id)
+                                                               relation=type(_["r"][0]).__name__)
                     third_temp_info["name"] = construct_full_name_data(third_id)
+                    # 保证id不重复
+                    third_temp_info["id"] = is_repeat_node(third_id)
                     third_info.append(third_temp_info)
-            temp_info["children"] = third_info
+            temp_info["children"].extend(third_info)
 
-            # 获取三级节点(反向指向)
-            query = "MATCH p=(b:Synset)-[r]->(Synset{id:'" + temp_id + "'}) RETURN r,b"
+            # 获取三级节点名字(反向指向)
+            query = "MATCH p=(b:Synset)-[r*1]->(Synset{id:'" + temp_id + "'}) RETURN r,b"
             third_data, third_info = get_query_data(query), []
             if third_data:
                 for _ in third_data:
                     third_relation, third_synset = _["r"], _["b"]
                     third_id, third_temp_info = construct_data(synset=third_synset, status="G",
-                                                               relation=type(_["r"]).__name__)
-                    if third_id in all_node_id:
-                        continue
-                    else:
-                        all_node_id.append(third_id)
+                                                               relation=type(_["r"][0]).__name__)
                     third_temp_info["name"] = construct_full_name_data(third_id)
+                    # 保证id不重复
+                    third_temp_info["id"] = is_repeat_node(third_id)
                     third_info.append(third_temp_info)
-            temp_info["children"] = third_info
+            temp_info["children"].extend(third_info)
 
+            # 保证id不重复
+            temp_info["id"] = is_repeat_node(temp_id)
             info["children"].append(temp_info)
 
     # 获取二级节点(反向指向)
-    query = "MATCH p=(b:Synset)-[r]->(Synset{id:'" + id + "'}) RETURN r,b"
+    query = "MATCH p=(b:Synset)-[r*1]->(Synset{id:'" + id + "'}) RETURN r,b"
     second_data = get_query_data(query)
     if second_data:
         for _ in second_data:
             relation, temp_synset = _["r"], _["b"]
             temp_id, temp_info = construct_data(synset=temp_synset, status="G",
-                                                relation=type(_["r"]).__name__)
+                                                relation=type(_["r"][0]).__name__)
             temp_info["name"] = construct_full_name_data(temp_id)
-            if temp_id in all_node_id:
-                continue
-            else:
-                all_node_id.append(temp_id)
 
-            # 获取三级节点(正向指向)
-            query = "MATCH p=(Synset{id:'" + temp_id + "'})-[r]->(b:Synset) RETURN r,b"
+            # 获取三级节点名字(正向指向)
+            query = "MATCH p=(Synset{id:'" + temp_id + "'})-[r*1]->(b:Synset) RETURN r,b"
             third_data, third_info = get_query_data(query), []
             if third_data:
                 for _ in third_data:
                     third_relation, third_synset = _["r"], _["b"]
                     third_id, third_temp_info = construct_data(synset=third_synset, status="G",
-                                                               relation=type(_["r"]).__name__)
-                    if third_id in all_node_id:
-                        continue
-                    else:
-                        all_node_id.append(third_id)
+                                                               relation=type(_["r"][0]).__name__)
                     third_temp_info["name"] = construct_full_name_data(third_id)
+                    # 保证id不重复
+                    third_temp_info["id"] = is_repeat_node(third_id)
                     third_info.append(third_temp_info)
-            temp_info["children"] = third_info
+            temp_info["children"].extend(third_info)
 
-            # 获取三级节点(反向指向)
-            query = "MATCH p=(b:Synset)-[r]->(Synset{id:'" + temp_id + "'}) RETURN r,b"
+            # 获取三级节点名字(反向指向)
+            query = "MATCH p=(b:Synset)-[r*1]->(Synset{id:'" + temp_id + "'}) RETURN r,b"
             third_data, third_info = get_query_data(query), []
             if third_data:
                 for _ in third_data:
                     third_relation, third_synset = _["r"], _["b"]
                     third_id, third_temp_info = construct_data(synset=third_synset, status="G",
-                                                               relation=type(_["r"]).__name__)
-                    if third_id in all_node_id:
-                        continue
-                    else:
-                        all_node_id.append(third_id)
+                                                               relation=type(_["r"][0]).__name__)
                     third_temp_info["name"] = construct_full_name_data(third_id)
+                    # 保证id不重复
+                    third_temp_info["id"] = is_repeat_node(third_id)
                     third_info.append(third_temp_info)
-            temp_info["children"] = third_info
+            temp_info["children"].extend(third_info)
 
+            # 保证id不重复
+            temp_info["id"] = is_repeat_node(temp_id)
             info["children"].append(temp_info)
 
     data["children"].append(info)
