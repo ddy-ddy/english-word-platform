@@ -10724,3 +10724,22 @@ java.lang.NullPointerException: null
 2023-04-03 06:21:18.298+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1451, gcTime=0, gcCount=0}
 2023-04-03 06:21:19.260+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=777, gcTime=0, gcCount=0}
 2023-04-03 06:26:12.874+0000 WARN  [o.n.k.i.c.VmPauseMonitorComponent] Detected VM stop-the-world pause: {pauseTime=1523, gcTime=0, gcCount=0}
+2023-04-03 08:12:44.701+0000 INFO  [o.n.g.f.DatabaseManagementServiceFactory] Shutdown started
+2023-04-03 08:12:44.963+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopping 'DatabaseId{95fdc8b4[neo4j]}'.
+2023-04-03 08:12:44.968+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] Requirement `Database unavailable` makes database neo4j unavailable.
+2023-04-03 08:12:44.969+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [neo4j/95fdc8b4] DatabaseId{95fdc8b4[neo4j]} is unavailable.
+2023-04-03 08:12:44.976+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] Waiting for closing transactions.
+2023-04-03 08:12:44.978+0000 INFO  [o.n.k.d.Database] [neo4j/95fdc8b4] All transactions are closed.
+2023-04-03 08:12:45.004+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [neo4j/95fdc8b4] Checkpoint triggered by "Database shutdown" @ txId: 1 checkpoint started...
+2023-04-03 08:12:46.931+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [neo4j/95fdc8b4] Checkpoint triggered by "Database shutdown" @ txId: 1 checkpoint completed in 1s 917ms
+2023-04-03 08:12:47.006+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] [neo4j/95fdc8b4] No log version pruned. The strategy used was '1 days'. 
+2023-04-03 08:12:48.265+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopped 'DatabaseId{95fdc8b4[neo4j]}' successfully.
+2023-04-03 08:12:48.265+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopping 'DatabaseId{00000000[system]}'.
+2023-04-03 08:12:48.265+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] Requirement `Database unavailable` makes database system unavailable.
+2023-04-03 08:12:48.265+0000 INFO  [o.n.k.a.DatabaseAvailabilityGuard] [system/00000000] DatabaseId{00000000[system]} is unavailable.
+2023-04-03 08:12:48.266+0000 INFO  [o.n.k.d.Database] [system/00000000] Waiting for closing transactions.
+2023-04-03 08:12:48.266+0000 INFO  [o.n.k.d.Database] [system/00000000] All transactions are closed.
+2023-04-03 08:12:48.266+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [system/00000000] Checkpoint triggered by "Database shutdown" @ txId: 37 checkpoint started...
+2023-04-03 08:12:50.510+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] [system/00000000] Checkpoint triggered by "Database shutdown" @ txId: 37 checkpoint completed in 2s 242ms
+2023-04-03 08:12:50.510+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] [system/00000000] No log version pruned. The strategy used was '1 days'. 
+2023-04-03 08:12:51.865+0000 INFO  [o.n.d.d.DefaultDatabaseManager] Stopped 'DatabaseId{00000000[system]}' successfully.
