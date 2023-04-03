@@ -1,18 +1,22 @@
 <script>
   import G6 from "@antv/g6";
-  import { onMount } from "svelte";
-  export let data;
-  let showLegend = false;
-  const graphData = data["info"]; // 图数据
+  export let data; // 传入的配置数据
+  let searchWord; // 搜索词
+  let graph = null; // 图实例
+  let showLegend = false; // 是否显示图例
   const nodeLegend = data["nodeLegend"]; // 节点图例
   const relationLegend = data["relationLegend"]; // 关系图例
   const colors = data["colors"]; // 节点颜色
 
-  onMount(() => {
+  function renderGraph(useData) {
+    if (graph) {
+      graph.destroy();
+    }
+    const graphData = useData; // 图数据
     const container = document.getElementById("graph-container");
     const width = container.scrollWidth;
     const height = container.scrollHeight || 1500;
-    //  组件props
+    // 图数据及配置
     const props = {
       data: graphData,
       config: {
@@ -20,6 +24,82 @@
         defaultLevel: 3,
         defaultZoom: 0.5,
         modes: { default: ["zoom-canvas", "drag-canvas"] },
+      },
+    };
+    // 工具栏
+    const toolbar = new G6.ToolBar({
+      position: { x: 50, y: 80 },
+      getContent: () => {
+        const outDiv = document.createElement("div");
+        outDiv.style.width = "200px";
+        outDiv.style.padding = "5px";
+        outDiv.style.fontSize = "13px";
+        // outDiv.style.backgroundColor = "rgb(241 245 249)";
+        outDiv.style.fontWeight = "500";
+        outDiv.innerHTML = `
+        <ul class="grid grid-cols-4 justify-items-center items-center">
+          <li code="zoomOut" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">放大</li>
+          <li code="zoomIn" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">缩小</li>
+          <li code="realZoom" class="rounded-lg pt-0.5  border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">复位</li>
+          <li code="show" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">图例</li>
+        </ul>`;
+        return outDiv;
+      },
+      handleClick: (code, graph) => {
+        if (code === "zoomIn") {
+          toolbar.zoomIn();
+        } else if (code === "zoomOut") {
+          toolbar.zoomOut();
+        } else if (code === "realZoom") {
+          toolbar.realZoom();
+        } else if (code === "show") {
+          if (showLegend === true) {
+            showLegend = false;
+          } else {
+            showLegend = true;
+          }
+        }
+      },
+    });
+    // 默认配置
+    const defaultConfig = {
+      width,
+      height,
+      modes: {
+        default: ["zoom-canvas", "drag-canvas"],
+      },
+      fitView: true, // 图自动适配画布大小
+      fitViewPadding: [-800, 300, 0, 300], // 图自动适配画布大小时的边距
+      animate: true,
+      minZoom: 0.4, // 最小缩放比例
+      maxZoom: 2, // 最大缩放比例
+      defaultNode: {
+        type: "flow-rect",
+      },
+      defaultEdge: {
+        type: "cubic-horizontal",
+        style: {
+          stroke: "#CED4D9",
+          lineWidth: 2,
+        },
+        labelCfg: {
+          refY: 10,
+          autoRotate: true,
+          style: {
+            fontSize: 12,
+            fontWeight: "thin",
+          },
+        },
+        label: "relation",
+      },
+      layout: {
+        type: "indented",
+        direction: "LR",
+        dropCap: false, // 每个节点的第一个自节点是否位于下一行
+        indent: 300, //同一层节点之间的宽间距
+        getHeight: () => {
+          return 60; //每个节点的高度
+        },
       },
     };
     // 自定义节点
@@ -75,10 +155,7 @@
                   ...textConfig,
                   x: 12 + nodeOrigin.x,
                   y: 24 + nodeOrigin.y,
-                  text:
-                    name.indexOf(",") !== -1
-                      ? name.split(",")[0]
-                      : name,
+                  text: name.indexOf(",") !== -1 ? name.split(",")[0] : name,
                   fontSize: 18,
                   fill: "#000",
                   cursor: "pointer",
@@ -253,93 +330,12 @@
         "rect"
       );
     };
-    // 工具栏
-    const toolbar = new G6.ToolBar({
-      position: { x: 50, y: 80 },
-      getContent: () => {
-        const outDiv = document.createElement("div");
-        outDiv.style.width = "200px";
-        outDiv.style.padding = "5px";
-        outDiv.style.fontSize = "13px";
-        // outDiv.style.backgroundColor = "rgb(241 245 249)";
-        outDiv.style.fontWeight = "500";
-        outDiv.innerHTML = `
-        <ul class="grid grid-cols-4 justify-items-center items-center">
-          <li code="zoomOut" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">放大</li>
-          <li code="zoomIn" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">缩小</li>
-          <li code="realZoom" class="rounded-lg pt-0.5  border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">复位</li>
-          <li code="show" class="rounded-lg pt-0.5 border-gray-300 text-center hover:bg-sky-200 active:bg-sky-300 hover:text-black">图例</li>
-        </ul>`;
-        return outDiv;
-      },
-      handleClick: (code, graph) => {
-        if (code === "zoomIn") {
-          toolbar.zoomIn();
-        } else if (code === "zoomOut") {
-          toolbar.zoomOut();
-        } else if (code === "realZoom") {
-          toolbar.realZoom();
-        } else if (code === "show") {
-          if (showLegend === true) {
-            showLegend = false;
-          } else {
-            showLegend = true;
-          }
-        }
-      },
-    });
-    // 默认配置
-    const defaultConfig = {
-      width,
-      height,
-      modes: {
-        default: ["zoom-canvas", "drag-canvas"],
-      },
-      fitView: true, // 图自动适配画布大小
-      fitViewPadding: [-800, 300, 0, 300], // 图自动适配画布大小时的边距
-      animate: true,
-      minZoom: 0.4, // 最小缩放比例
-      maxZoom: 2, // 最大缩放比例
-      defaultNode: {
-        type: "flow-rect",
-      },
-      defaultEdge: {
-        type: "cubic-horizontal",
-        style: {
-          stroke: "#CED4D9",
-          lineWidth: 2,
-        },
-        labelCfg: {
-          refY: 10,
-          autoRotate: true,
-          style: {
-            fontSize: 12,
-            fontWeight: "thin",
-          },
-        },
-        label: "relation",
-      },
-      layout: {
-        type: "indented",
-        direction: "LR",
-        dropCap: false, // 每个节点的第一个自节点是否位于下一行
-        indent: 300, //同一层节点之间的宽间距
-        getHeight: () => {
-          return 60; //每个节点的高度
-        },
-      },
-    };
-
-    registerFn();
-
-    const { data } = props;
-    let graph = null;
-
+    // 初始化图
     const initGraph = (data) => {
+      console.log(data);
       if (!data) {
         return;
       }
-      const { onInit, config } = props;
       // 提示栏
       const tooltip = new G6.Tooltip({
         offsetX: 20,
@@ -358,11 +354,11 @@
                       <li class="text-xs font-mono font-light">${nodeInfo}</li>
                       <ul class="list-disc list-inside">
                         ${nodeExamples
-                        .map(
-                          (example) =>
-                            `<li class="text-xs font-mono font-light">${example}</li>`
-                        )
-                        .join("")}  
+                          .map(
+                            (example) =>
+                              `<li class="text-xs font-mono font-light">${example}</li>`
+                          )
+                          .join("")}  
                       </ul>
                     </ul>
                   </div>`;
@@ -380,7 +376,7 @@
       graph = new G6.TreeGraph({
         container,
         ...defaultConfig,
-        ...config,
+        ...props.config,
         plugins: [tooltip, toolbar],
         linkCenter: true,
         enabledStack: true,
@@ -396,10 +392,8 @@
           label: relation,
         };
       });
-
       graph.data(data);
       graph.render();
-
       const handleCollapse = (e) => {
         const target = e.target;
         const id = target.get("modelId");
@@ -415,21 +409,21 @@
       graph.on("collapse-back:click", (e) => {
         handleCollapse(e);
       });
-      graph.on("tooltipchange", (e) => {
-        // console.log(1);
-      });
     };
+    registerFn();
+    initGraph(props.data);
+  }
 
-    initGraph(data);
-
-    if (typeof window !== "undefined")
-      window.onresize = () => {
-        if (!graph || graph.get("destroyed")) return;
-        if (!container || !container.scrollWidth || !container.scrollHeight)
-          return;
-        graph.changeSize(container.scrollWidth, container.scrollHeight);
-      };
-  });
+  async function handleSubmit() {
+    const formData = new FormData();
+    formData.append("word", searchWord);
+    const response = await fetch("http://127.0.0.1:5002/search", {
+      method: "POST",
+      body: formData,
+    });
+    const result = await response.json();
+    renderGraph(result);
+  }
 </script>
 
 <div class="grid-for-background full-screen">
@@ -444,26 +438,29 @@
       <div class="navbar-center">
         <div class="form-control">
           <div class="input-group">
-            <input
-              type="text"
-              placeholder="输入你要查询的单词..."
-              class="input input-bordered bg-base-200"
-            />
-            <button class="btn btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                ><path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                /></svg
-              >
-            </button>
+            <form on:submit|preventDefault={handleSubmit}>
+              <input
+                type="text"
+                placeholder="输入你要查询的单词..."
+                class="input input-bordered bg-base-200"
+                bind:value={searchWord}
+              />
+              <button type="submit" class="btn btn-square">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  /></svg
+                >
+              </button>
+            </form>
           </div>
         </div>
       </div>
