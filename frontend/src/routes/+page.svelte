@@ -4,6 +4,7 @@
   let searchWord; // 搜索词
   let graph = null; // 图实例
   let showLegend = false; // 是否显示图例
+  let isLoading = false; // 是否正在加载
   const nodeLegend = data["nodeLegend"]; // 节点图例
   const relationLegend = data["relationLegend"]; // 关系图例
   const colors = data["colors"]; // 节点颜色
@@ -332,7 +333,6 @@
     };
     // 初始化图
     const initGraph = (data) => {
-      console.log(data);
       if (!data) {
         return;
       }
@@ -412,9 +412,12 @@
     };
     registerFn();
     initGraph(props.data);
+    isLoading = false;
+    showLegend = true;
   }
 
   async function handleSubmit() {
+    isLoading = true;
     const formData = new FormData();
     formData.append("word", searchWord);
     const response = await fetch("http://127.0.0.1:5002/search", {
@@ -437,15 +440,37 @@
       <!-- 中间搜索 -->
       <div class="navbar-center">
         <div class="form-control">
-          <div class="input-group">
-            <form on:submit|preventDefault={handleSubmit}>
-              <input
-                type="text"
-                placeholder="输入你要查询的单词..."
-                class="input input-bordered bg-base-200"
-                bind:value={searchWord}
-              />
-              <button type="submit" class="btn btn-square">
+          <form class="input-group" on:submit|preventDefault={handleSubmit}>
+            <!-- 输入框 -->
+            <input
+              type="text"
+              placeholder="输入你要查询的单词..."
+              class="input input-bordered bg-base-200"
+              bind:value={searchWord}
+            />
+            <!-- 点击提交 -->
+            <button type="submit" class="btn btn-square">
+              {#if isLoading}
+                <svg
+                  class="animate-spin h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  />
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm12 0a8 8 0 018 8v-2a6 6 0 00-6-6h-2zm-4 4a4 4 0 100-8 4 4 0 000 8z"
+                  />
+                </svg>
+              {:else}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -459,9 +484,9 @@
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   /></svg
                 >
-              </button>
-            </form>
-          </div>
+              {/if}
+            </button>
+          </form>
         </div>
       </div>
       <!-- 最右边 -->
