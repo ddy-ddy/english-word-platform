@@ -160,3 +160,30 @@
 2023-03-27 07:46:45.714+0000 INFO  name: system
 2023-03-27 07:46:45.714+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
 2023-03-27 07:46:45.714+0000 INFO  Started.
+2023-03-28 10:30:12.178+0000 INFO  Neo4j Server shutdown initiated by request
+2023-03-28 10:30:12.187+0000 INFO  Stopping...
+2023-04-02 11:57:18.517+0000 INFO  Starting...
+2023-04-02 11:57:19.304+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-04-02 11:57:20.675+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-04-02 11:57:22.655+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-04-02 11:57:22.655+0000 INFO  Updating the initial password in component 'security-users'
+2023-04-02 11:57:23.613+0000 INFO  Bolt enabled on localhost:7687.
+2023-04-02 11:57:24.516+0000 INFO  Remote interface available at http://localhost:7474/
+2023-04-02 11:57:24.520+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-04-02 11:57:24.520+0000 INFO  name: system
+2023-04-02 11:57:24.520+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-04-02 11:57:24.520+0000 INFO  Started.
+2023-04-02 11:57:33.054+0000 INFO  Neo4j Server shutdown initiated by request
+2023-04-02 11:57:33.055+0000 INFO  Stopping...
+2023-04-02 11:57:41.603+0000 INFO  Stopped.
+2023-04-02 11:57:45.525+0000 INFO  Starting...
+2023-04-02 11:57:46.022+0000 INFO  This instance is ServerId{b3cdc88a} (b3cdc88a-4d35-48b0-80c5-2e727711ebe6)
+2023-04-02 11:57:47.458+0000 INFO  ======== Neo4j 4.4.18 ========
+2023-04-02 11:57:49.751+0000 INFO  Performing postInitialization step for component 'security-users' with version 3 and status CURRENT
+2023-04-02 11:57:49.752+0000 INFO  Updating the initial password in component 'security-users'
+2023-04-02 11:57:50.827+0000 INFO  Bolt enabled on localhost:7687.
+2023-04-02 11:57:51.690+0000 INFO  Remote interface available at http://localhost:7474/
+2023-04-02 11:57:51.693+0000 INFO  id: ADE41BE4DC2A39F2272C3AB7E73F5E04922FB5F197C001D77676FFCEA0F253CD
+2023-04-02 11:57:51.694+0000 INFO  name: system
+2023-04-02 11:57:51.694+0000 INFO  creationDate: 2023-03-05T13:11:51.738Z
+2023-04-02 11:57:51.694+0000 INFO  Started.
